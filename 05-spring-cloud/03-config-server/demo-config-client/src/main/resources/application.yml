@@ -1,0 +1,77 @@
+spring:
+  application:
+    # Application name - MUST match config file in Git repository
+    # Config Server looks for: {application}.yml, {application}-{profile}.yml
+    name: product-service
+  
+  profiles:
+    # Active profile (dev/test/prod)
+    # Determines which configuration file to load
+    active: dev
+  
+  config:
+    # Import configuration from Config Server
+    # 'optional:' means continue if Config Server is unavailable
+    import: optional:configserver:http://configuser:configpass@localhost:8888
+  
+  cloud:
+    config:
+      # Config Server URI
+      uri: http://localhost:8888
+      
+      # Username and password for Config Server
+      username: configuser
+      password: configpass
+      
+      # Fail fast if Config Server is not available
+      # true: Fail startup if Config Server down
+      # false: Continue with bundled application.yml
+      fail-fast: false
+      
+      # Git branch/tag/commit to use
+      label: main
+      
+      # Retry configuration if Config Server is temporarily unavailable
+      retry:
+        initial-interval: 1000
+        max-attempts: 6
+        max-interval: 2000
+        multiplier: 1.1
+      
+      # Enable discovery of Config Server via Eureka (if available)
+      discovery:
+        enabled: false
+        service-id: config-server
+
+# Server Configuration (can be overridden by Config Server)
+server:
+  port: 8081
+
+# Management Endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        # Expose refresh endpoint for dynamic configuration update
+        include: health,info,env,refresh,configprops
+  endpoint:
+    health:
+      show-details: always
+    refresh:
+      enabled: true
+
+# Logging
+logging:
+  level:
+    root: INFO
+    com.example.configclient: DEBUG
+    org.springframework.cloud.config: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Default application properties (overridden by Config Server)
+app:
+  message: "Local Config - Will be overridden by Config Server"
+  timeout: 3000
+  max-retries: 2
+  environment: local

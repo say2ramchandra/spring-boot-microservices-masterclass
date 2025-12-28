@@ -1,0 +1,119 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  
+  # Security Configuration
+  security:
+    user:
+      name: configuser
+      password: configpass
+  
+  # Cloud Config Server Configuration
+  cloud:
+    config:
+      server:
+        # Git Backend Configuration
+        git:
+          # Local Git repository (for demo purposes)
+          # In production, use remote Git repository:
+          # uri: https://github.com/your-org/config-repo
+          uri: file:///${user.home}/config-repo
+          
+          # Default branch to use
+          default-label: main
+          
+          # Clone repository on startup
+          clone-on-start: true
+          
+          # Search paths within repository
+          search-paths:
+            - services
+            - shared
+          
+          # Force pull on every request (useful for development)
+          force-pull: true
+          
+          # Timeout for Git operations
+          timeout: 5
+          
+          # For remote Git repository with authentication:
+          # username: ${GIT_USERNAME}
+          # password: ${GIT_PASSWORD}
+        
+        # Encryption Configuration (optional)
+        encrypt:
+          enabled: true
+        
+        # Native profile (fallback to filesystem)
+        native:
+          search-locations: classpath:/config
+
+# Management Endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env,configprops
+  endpoint:
+    health:
+      show-details: always
+
+# Logging
+logging:
+  level:
+    root: INFO
+    com.example.configserver: DEBUG
+    org.springframework.cloud.config: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+---
+# Profile: development
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:///${user.home}/config-repo
+          clone-on-start: true
+          force-pull: true
+
+logging:
+  level:
+    org.springframework.cloud.config: DEBUG
+
+---
+# Profile: production
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  cloud:
+    config:
+      server:
+        git:
+          # Production Git repository
+          uri: https://github.com/your-org/config-repo
+          username: ${GIT_USERNAME}
+          password: ${GIT_PASSWORD}
+          default-label: main
+          clone-on-start: true
+          force-pull: false
+          timeout: 10
+
+  security:
+    user:
+      name: ${CONFIG_USER}
+      password: ${CONFIG_PASSWORD}
+
+logging:
+  level:
+    org.springframework.cloud.config: INFO

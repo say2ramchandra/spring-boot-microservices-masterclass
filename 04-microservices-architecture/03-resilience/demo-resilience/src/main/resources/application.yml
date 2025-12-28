@@ -1,0 +1,106 @@
+spring:
+  application:
+    name: resilience-demo
+
+server:
+  port: 8095
+
+# Resilience4j Configuration
+resilience4j:
+  # Circuit Breaker Configuration
+  circuitbreaker:
+    instances:
+      orderService:
+        # Sliding window type: COUNT_BASED or TIME_BASED
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 10
+        
+        # Failure thresholds
+        failure-rate-threshold: 50
+        slow-call-rate-threshold: 50
+        slow-call-duration-threshold: 2s
+        
+        # Minimum calls before calculating failure rate
+        minimum-number-of-calls: 5
+        
+        # Wait duration in OPEN state
+        wait-duration-in-open-state: 10s
+        
+        # Calls allowed in HALF_OPEN state
+        permitted-number-of-calls-in-half-open-state: 3
+        
+        # Automatic transition
+        automatic-transition-from-open-to-half-open-enabled: true
+        
+        # Record exceptions
+        record-exceptions:
+          - java.io.IOException
+          - java.util.concurrent.TimeoutException
+          - org.springframework.web.client.ResourceAccessException
+  
+  # Retry Configuration
+  retry:
+    instances:
+      orderService:
+        max-attempts: 3
+        wait-duration: 1s
+        enable-exponential-backoff: true
+        exponential-backoff-multiplier: 2
+        retry-exceptions:
+          - java.io.IOException
+          - org.springframework.web.client.ResourceAccessException
+        ignore-exceptions:
+          - java.lang.IllegalArgumentException
+  
+  # Time Limiter Configuration
+  timelimiter:
+    instances:
+      orderService:
+        timeout-duration: 3s
+        cancel-running-future: true
+  
+  # Bulkhead Configuration
+  bulkhead:
+    instances:
+      orderService:
+        max-concurrent-calls: 5
+        max-wait-duration: 100ms
+  
+  # Thread Pool Bulkhead Configuration
+  thread-pool-bulkhead:
+    instances:
+      orderService:
+        max-thread-pool-size: 4
+        core-thread-pool-size: 2
+        queue-capacity: 10
+        keep-alive-duration: 20ms
+  
+  # Rate Limiter Configuration
+  ratelimiter:
+    instances:
+      orderService:
+        limit-refresh-period: 1s
+        limit-for-period: 10
+        timeout-duration: 0s
+
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+# Logging
+logging:
+  level:
+    com.example: DEBUG
+    io.github.resilience4j: DEBUG

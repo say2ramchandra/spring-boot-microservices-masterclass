@@ -1,0 +1,25 @@
+# Development profile configuration
+server:
+  port: 8080
+
+app:
+  environment: development
+  debug-enabled: true
+  
+  database:
+    host: localhost
+    port: 3306
+    name: devdb
+    username: devuser
+    password: devpass
+    
+  api:
+    endpoint: http://localhost:8081/api
+    timeout: 5000
+    retry-count: 3
+    
+# Enable debug logging in dev
+logging:
+  level:
+    root: DEBUG
+    com.masterclass: TRACE

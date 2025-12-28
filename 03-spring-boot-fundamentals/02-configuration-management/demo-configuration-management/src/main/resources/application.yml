@@ -1,0 +1,31 @@
+# Common configuration for all profiles
+spring:
+  application:
+    name: demo-configuration-management
+
+# Application properties - common across all environments
+app:
+  name: Configuration Management Demo
+  version: 1.0.0
+  description: Demonstrates Spring Boot configuration features
+  
+  # Features (can be toggled)
+  features:
+    enabled:
+      - authentication
+      - caching
+      - monitoring
+  
+  # Connection settings
+  connection:
+    max-pool-size: 20
+    min-pool-size: 5
+    timeout: 30000
+    
+# Logging configuration
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+  level:
+    root: INFO
+    com.masterclass: DEBUG
