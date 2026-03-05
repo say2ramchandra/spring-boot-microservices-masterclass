@@ -1,0 +1,100 @@
+version: '3.8'
+
+services:
+  # ==================================================
+  # PostgreSQL Database
+  # ==================================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: product-postgres
+    environment:
+      POSTGRES_DB: productdb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret123
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db:/docker-entrypoint-initdb.d
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d productdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # ==================================================
+  # Spring Boot Application
+  # ==================================================
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: product-service
+    environment:
+      # Spring Boot configuration
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/productdb
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: secret123
+      
+      # JPA configuration
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+      
+      # JVM options
+      JAVA_OPTS: >-
+        -XX:+UseContainerSupport
+        -XX:MaxRAMPercentage=75.0
+        -Xlog:gc*:file=/tmp/gc.log
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # ==================================================
+  # pgAdmin (Optional - Database Management UI)
+  # ==================================================
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: product-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "5050:80"
+    networks:
+      - app-network
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    profiles:
+      - with-admin
+
+# ==================================================
+# Volumes (Persistent Storage)
+# ==================================================
+volumes:
+  postgres_data:
+    driver: local
+
+# ==================================================
+# Networks (Container Communication)
+# ==================================================
+networks:
+  app-network:
+    driver: bridge

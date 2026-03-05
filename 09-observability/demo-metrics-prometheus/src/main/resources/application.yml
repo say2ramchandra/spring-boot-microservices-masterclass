@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: metrics-demo
+  
+  datasource:
+    url: jdbc:h2:mem:metricsdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+
+server:
+  port: 8086
+
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+      base-path: /actuator
+  
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  
+  # Metrics configuration
+  metrics:
+    tags:
+      application: ${spring.application.name}
+      environment: development
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+    export:
+      prometheus:
+        enabled: true
+
+# Application info for /actuator/info
+info:
+  app:
+    name: Metrics Demo Application
+    description: Demonstrates comprehensive metrics with Micrometer and Prometheus
+    version: 1.0.0
+    tags:
+      - metrics
+      - prometheus
+      - grafana
+      - monitoring

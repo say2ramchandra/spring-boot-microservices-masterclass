@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: demo-multi-stage-build
+
+server:
+  port: 8080
+  shutdown: graceful
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,env
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      simple:
+        enabled: true
+
+# Logging
+logging:
+  level:
+    com.masterclass: INFO
+    org.springframework.web: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Security Basics Demo</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .card { background: white; border-radius: 10px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #333; margin-bottom: 1rem; }
+        h2 { color: #555; margin-bottom: 0.5rem; }
+        p { color: #666; line-height: 1.6; margin-bottom: 1rem; }
+        .nav { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .nav a { padding: 0.75rem 1.5rem; background: #667eea; color: white; text-decoration: none; border-radius: 5px; transition: transform 0.2s; }
+        .nav a:hover { transform: translateY(-2px); background: #5a6fd6; }
+        .nav a.danger { background: #dc3545; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .info-item { padding: 1rem; background: #f8f9fa; border-radius: 8px; }
+        .info-item h3 { color: #333; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; }
+        .info-item p { color: #667eea; font-size: 1.2rem; font-weight: 600; margin: 0; }
+        .badge { display: inline-block; padding: 0.25rem 0.5rem; background: #28a745; color: white; border-radius: 4px; font-size: 0.85rem; margin: 0.25rem; }
+        .badge.admin { background: #dc3545; }
+        .badge.manager { background: #fd7e14; }
+        .badge.user { background: #17a2b8; }
+        .welcome { font-size: 1.5rem; color: #667eea; margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="nav">
+                <a th:href="@{/home}">Home</a>
+                <a th:href="@{/dashboard}">Dashboard</a>
+                <a th:href="@{/profile}">Profile</a>
+                <a th:href="@{/manager}" sec:authorize="hasAnyRole('MANAGER', 'ADMIN')">Manager</a>
+                <a th:href="@{/admin}" sec:authorize="hasRole('ADMIN')">Admin</a>
+                <a th:href="@{/logout}" class="danger">Logout</a>
+            </div>
+
+            <p class="welcome">Welcome, <span th:text="${username}">User</span>! 👋</p>
+            <h1>📊 User Dashboard</h1>
+            <p>You have successfully authenticated. This page is accessible to any logged-in user.</p>
+        </div>
+
+        <div class="card">
+            <h2>🔑 Your Session Info</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>Username</h3>
+                    <p th:text="${username}">username</p>
+                </div>
+                <div class="info-item">
+                    <h3>Authentication Status</h3>
+                    <p>✅ Authenticated</p>
+                </div>
+                <div class="info-item">
+                    <h3>Your Roles</h3>
+                    <p>
+                        <span th:each="auth : ${authorities}" 
+                              th:text="${auth}"
+                              th:class="${'badge ' + (auth.toString().contains('ADMIN') ? 'admin' : (auth.toString().contains('MANAGER') ? 'manager' : 'user'))}">
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🚀 Quick Actions</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>View Profile</h3>
+                    <p><a th:href="@{/profile}" style="color: #667eea;">Go to Profile →</a></p>
+                </div>
+                <div class="info-item" sec:authorize="hasAnyRole('MANAGER', 'ADMIN')">
+                    <h3>Manager Dashboard</h3>
+                    <p><a th:href="@{/manager}" style="color: #667eea;">View Reports →</a></p>
+                </div>
+                <div class="info-item" sec:authorize="hasRole('ADMIN')">
+                    <h3>Admin Panel</h3>
+                    <p><a th:href="@{/admin}" style="color: #667eea;">Manage System →</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

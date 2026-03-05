@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard - Security Basics Demo</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #fd7e14 0%, #e65100 100%); min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .card { background: white; border-radius: 10px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #fd7e14; margin-bottom: 1rem; }
+        h2 { color: #555; margin-bottom: 1rem; }
+        p { color: #666; line-height: 1.6; margin-bottom: 1rem; }
+        .nav { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .nav a { padding: 0.75rem 1.5rem; background: #fd7e14; color: white; text-decoration: none; border-radius: 5px; }
+        .nav a:hover { background: #e65100; }
+        .nav a.secondary { background: #667eea; }
+        .nav a.danger { background: #dc3545; }
+        .manager-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .manager-item { padding: 1.5rem; background: #fff8e1; border-radius: 8px; border: 1px solid #ffcc02; }
+        .manager-item h3 { color: #fd7e14; margin-bottom: 0.5rem; }
+        .manager-item p { color: #666; font-size: 0.9rem; margin: 0; }
+        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .stat { text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; }
+        .stat .value { font-size: 2rem; color: #fd7e14; font-weight: bold; }
+        .stat .label { color: #666; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="nav">
+                <a th:href="@{/home}" class="secondary">Home</a>
+                <a th:href="@{/dashboard}" class="secondary">Dashboard</a>
+                <a th:href="@{/profile}" class="secondary">Profile</a>
+                <a th:href="@{/manager}">Manager</a>
+                <a th:href="@{/admin}" sec:authorize="hasRole('ADMIN')" class="danger">Admin</a>
+                <a th:href="@{/logout}" class="danger">Logout</a>
+            </div>
+
+            <h1>📈 Manager Dashboard</h1>
+            <p th:text="${message}">Welcome to the Manager Dashboard!</p>
+            <p>This page is accessible to users with <strong>MANAGER</strong> or <strong>ADMIN</strong> roles.</p>
+        </div>
+
+        <div class="card">
+            <h2>Quick Stats</h2>
+            <div class="stats">
+                <div class="stat">
+                    <div class="value">150</div>
+                    <div class="label">Total Users</div>
+                </div>
+                <div class="stat">
+                    <div class="value">120</div>
+                    <div class="label">Active Today</div>
+                </div>
+                <div class="stat">
+                    <div class="value">25</div>
+                    <div class="label">New This Week</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Manager Functions</h2>
+            <div class="manager-grid">
+                <a th:href="@{/manager/reports}" style="text-decoration: none;">
+                    <div class="manager-item">
+                        <h3>📊 Reports</h3>
+                        <p>View analytics and reports</p>
+                    </div>
+                </a>
+                <div class="manager-item">
+                    <h3>👥 Team</h3>
+                    <p>Manage team members</p>
+                </div>
+                <div class="manager-item">
+                    <h3>📋 Tasks</h3>
+                    <p>View and assign tasks</p>
+                </div>
+                <div class="manager-item">
+                    <h3>📅 Schedule</h3>
+                    <p>Team scheduling</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>API Access (Manager Level)</h2>
+            <p>Test manager API endpoints:</p>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 1rem; border-radius: 8px; overflow-x: auto;">
+# Get manager reports
+curl -u manager:manager123 http://localhost:8085/api/manager/reports
+
+# Get analytics data
+curl -u manager:manager123 http://localhost:8085/api/manager/analytics
+            </pre>
+        </div>
+    </div>
+</body>
+</html>

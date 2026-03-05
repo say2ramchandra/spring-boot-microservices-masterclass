@@ -1,0 +1,51 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          # Local Git repository (for development)
+          uri: file://${user.dir}/../../config-repo
+          # For production, use remote Git repository:
+          # uri: https://github.com/your-org/config-repo
+          # username: ${GIT_USERNAME}
+          # password: ${GIT_PASSWORD}
+          default-label: main
+          clone-on-start: true
+          search-paths: .
+        # Support for native profile (file-based config)
+        native:
+          search-locations: classpath:/config
+
+# Eureka Client Configuration
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+
+# Management endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,refresh,env
+  endpoint:
+    health:
+      show-details: always
+
+# Logging
+logging:
+  level:
+    org.springframework.cloud.config: INFO
+    org.springframework.boot: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"

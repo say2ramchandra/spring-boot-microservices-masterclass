@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: demo-simple-dockerfile
+
+server:
+  port: 8080
+  shutdown: graceful
+
+# Actuator configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+  health:
+    defaults:
+      enabled: true
+
+# Logging
+logging:
+  level:
+    com.masterclass: DEBUG
+    org.springframework.web: INFO
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"

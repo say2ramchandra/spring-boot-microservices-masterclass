@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - OAuth2 Demo</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%); min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .card { background: white; border-radius: 10px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #333; margin-bottom: 1rem; }
+        h2 { color: #555; margin-bottom: 1rem; }
+        p { color: #666; line-height: 1.6; margin-bottom: 1rem; }
+        .nav { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .nav a { padding: 0.75rem 1.5rem; background: #00b4db; color: white; text-decoration: none; border-radius: 5px; }
+        .nav a:hover { background: #0083b0; }
+        .nav a.danger { background: #dc3545; }
+        .user-card { display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: #f8f9fa; border-radius: 8px; }
+        .avatar { width: 80px; height: 80px; border-radius: 50%; background: #00b4db; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; overflow: hidden; }
+        .avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .user-info h3 { color: #333; margin-bottom: 0.25rem; }
+        .user-info p { color: #666; margin: 0; }
+        .attributes { margin-top: 1rem; }
+        .attr-grid { display: grid; gap: 0.5rem; }
+        .attr-item { display: grid; grid-template-columns: 150px 1fr; padding: 0.5rem; background: #f0f9ff; border-radius: 4px; }
+        .attr-item strong { color: #555; }
+        .attr-item span { color: #333; word-break: break-all; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="nav">
+                <a th:href="@{/home}">Home</a>
+                <a th:href="@{/dashboard}">Dashboard</a>
+                <a th:href="@{/profile}">Profile</a>
+                <a th:href="@{/logout}" class="danger">Logout</a>
+            </div>
+
+            <h1>📊 Dashboard</h1>
+            <p>Welcome! You have successfully authenticated using OAuth2.</p>
+        </div>
+
+        <div class="card">
+            <h2>👤 Your Profile</h2>
+            <div class="user-card">
+                <div class="avatar">
+                    <img th:if="${picture}" th:src="${picture}" alt="Profile">
+                    <span th:unless="${picture}">👤</span>
+                </div>
+                <div class="user-info">
+                    <h3 th:text="${name} ?: 'User'">User Name</h3>
+                    <p th:text="${email} ?: 'No email'">email@example.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🔑 OAuth2 User Attributes</h2>
+            <p>These attributes were received from the OAuth2 provider:</p>
+            <div class="attributes">
+                <div class="attr-grid">
+                    <div th:each="entry : ${attributes}" class="attr-item">
+                        <strong th:text="${entry.key}">Key</strong>
+                        <span th:text="${entry.value}">Value</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>✅ Authentication Status</h2>
+            <div class="attr-grid">
+                <div class="attr-item">
+                    <strong>Principal</strong>
+                    <span sec:authentication="name">username</span>
+                </div>
+                <div class="attr-item">
+                    <strong>Authorities</strong>
+                    <span sec:authentication="authorities">roles</span>
+                </div>
+                <div class="attr-item">
+                    <strong>Authenticated</strong>
+                    <span>✅ Yes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

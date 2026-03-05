@@ -1,0 +1,29 @@
+# Maven artifacts
+target/
+!target/*.jar
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Docs
+*.md
+docs/
+
+# Environment
+.env
+
+# Tests
+src/test/

@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: web-bff
+server:
+  port: 8101
+
+# Shared service configuration
+shared-service:
+  url: http://localhost:8100
+
+logging:
+  level:
+    com.masterclass.patterns.bff.web: INFO

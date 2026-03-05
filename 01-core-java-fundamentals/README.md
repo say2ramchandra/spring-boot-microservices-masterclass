@@ -14,6 +14,7 @@ By the end of this module, you will:
 - ✅ Write functional code using Streams and Lambdas
 - ✅ Understand and implement Functional Interfaces
 - ✅ Handle concurrency and multithreading scenarios
+- ✅ Understand JVM internals (GC, ClassLoaders, Memory, JIT)
 - ✅ Apply these concepts in Spring Boot context
 
 ## 📖 Module Contents
@@ -44,6 +45,7 @@ By the end of this module, you will:
 ### 4. [Concurrency & Multithreading](04-concurrency-multithreading/) ✅
 - Thread basics and lifecycle
 - Synchronization and race conditions
+- **Java Memory Model (JMM)** - visibility, happens-before, volatile
 - Locks and atomic operations
 - ExecutorService and Thread Pools
 - CompletableFuture async programming
@@ -52,14 +54,24 @@ By the end of this module, you will:
 - Real-world parallel processing
 - **Demo:** Complete concurrency patterns
 
+### 5. [JVM Internals](05-jvm-internals/) ✅
+- JVM Architecture overview
+- Memory Areas: Heap, Stack, Metaspace
+- Garbage Collection: Serial, Parallel, G1, ZGC
+- ClassLoader subsystem and delegation
+- JIT Compilation and optimizations
+- JVM Tuning and monitoring
+- **Demo:** GC behavior, ClassLoader hierarchy, Memory analysis, JIT effects
+
 ## ⏱️ Estimated Time
 
-**Total: 3-4 days** (with hands-on practice)
+**Total: 4-5 days** (with hands-on practice)
 
 - Collections Framework: 1 day
 - Streams and Lambdas: 1 day
 - Functional Interfaces: 0.5 day
 - Concurrency & Multithreading: 1-1.5 days
+- JVM Internals: 0.5-1 day
 
 ## 🚀 Getting Started
 
@@ -87,6 +99,8 @@ Streams & Lambdas (Functional programming)
 Functional Interfaces (Deep dive into functional paradigm)
     ↓
 Concurrency (Handle parallel processing)
+    ↓
+JVM Internals (Understand what runs your code)
     ↓
 Ready for Spring Core! →
 ```
@@ -118,6 +132,13 @@ Ready for Spring Core! →
 - Reactive programming
 - Performance optimization
 
+### JVM Internals
+**Critical for:**
+- Production troubleshooting (GC pauses, OOM)
+- Performance tuning (heap sizing, GC selection)
+- Understanding Spring Boot's startup and classloading
+- Memory leak diagnosis
+
 ## 📝 Practice Tips
 
 1. **Type the code yourself** - Don't copy-paste
@@ -133,6 +154,9 @@ After completing this module, you should be able to:
 - [ ] Transform data using Stream API fluently
 - [ ] Write clean functional code with lambdas
 - [ ] Implement thread-safe code
+- [ ] Explain JMM visibility and happens-before rules
+- [ ] Tune JVM for different workloads
+- [ ] Diagnose memory and GC issues
 - [ ] Explain performance implications of your choices
 
 ## 🔗 Next Steps

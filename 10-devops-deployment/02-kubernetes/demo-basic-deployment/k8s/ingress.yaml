@@ -1,0 +1,35 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: product-ingress
+  namespace: product
+  annotations:
+    # NGINX Ingress Controller annotations
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    # Rate limiting
+    nginx.ingress.kubernetes.io/limit-rps: "10"
+    # Timeout
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+  labels:
+    app: product-service
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: product.local  # Add to /etc/hosts: <minikube-ip> product.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: product-service
+            port:
+              number: 80
+  # Optional: TLS configuration
+  # tls:
+  # - hosts:
+  #   - product.local
+  #   secretName: product-tls-secret

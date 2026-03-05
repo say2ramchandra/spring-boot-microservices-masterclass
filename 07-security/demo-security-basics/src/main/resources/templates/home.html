@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Basics Demo - Home</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .card { background: white; border-radius: 10px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #333; margin-bottom: 1rem; }
+        h2 { color: #555; margin-bottom: 0.5rem; }
+        p { color: #666; line-height: 1.6; margin-bottom: 1rem; }
+        .nav { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .nav a { padding: 0.75rem 1.5rem; background: #667eea; color: white; text-decoration: none; border-radius: 5px; transition: transform 0.2s; }
+        .nav a:hover { transform: translateY(-2px); background: #5a6fd6; }
+        .nav a.danger { background: #dc3545; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .feature { padding: 1rem; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #667eea; }
+        .feature h3 { color: #333; margin-bottom: 0.5rem; }
+        .badge { display: inline-block; padding: 0.25rem 0.5rem; background: #28a745; color: white; border-radius: 4px; font-size: 0.85rem; }
+        .badge.admin { background: #dc3545; }
+        .badge.manager { background: #fd7e14; }
+        .badge.user { background: #17a2b8; }
+        .user-info { padding: 1rem; background: #e7f3ff; border-radius: 8px; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🔐 Spring Security Basics Demo</h1>
+            <p>Welcome to the Spring Security demonstration! This app showcases authentication and authorization concepts.</p>
+            
+            <div class="nav">
+                <a th:href="@{/home}">Home</a>
+                <a th:href="@{/about}">About</a>
+                
+                <!-- Show Login link only to anonymous users -->
+                <a th:href="@{/login}" sec:authorize="isAnonymous()">Login</a>
+                
+                <!-- Show Dashboard only to authenticated users -->
+                <a th:href="@{/dashboard}" sec:authorize="isAuthenticated()">Dashboard</a>
+                <a th:href="@{/profile}" sec:authorize="isAuthenticated()">Profile</a>
+                
+                <!-- Show Manager link to MANAGER and ADMIN -->
+                <a th:href="@{/manager}" sec:authorize="hasAnyRole('MANAGER', 'ADMIN')">Manager</a>
+                
+                <!-- Show Admin link only to ADMIN -->
+                <a th:href="@{/admin}" sec:authorize="hasRole('ADMIN')">Admin</a>
+                
+                <!-- Show Logout only to authenticated users -->
+                <a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="danger">Logout</a>
+            </div>
+
+            <!-- User info for authenticated users -->
+            <div sec:authorize="isAuthenticated()" class="user-info">
+                <strong>Logged in as:</strong> <span sec:authentication="name">User</span>
+                <br>
+                <strong>Roles:</strong> <span sec:authentication="authorities">Roles</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🎯 Demo Features</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>Form Login</h3>
+                    <p>Custom login page with username/password authentication</p>
+                </div>
+                <div class="feature">
+                    <h3>HTTP Basic Auth</h3>
+                    <p>REST API protection using HTTP Basic authentication</p>
+                </div>
+                <div class="feature">
+                    <h3>Role-Based Access</h3>
+                    <p>URL and method-level security based on user roles</p>
+                </div>
+                <div class="feature">
+                    <h3>Remember Me</h3>
+                    <p>Persistent authentication across browser sessions</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>👥 Demo Users</h2>
+            <p>Use these credentials to test different access levels:</p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                <tr style="background: #f8f9fa;">
+                    <th style="padding: 0.75rem; text-align: left;">Username</th>
+                    <th style="padding: 0.75rem; text-align: left;">Password</th>
+                    <th style="padding: 0.75rem; text-align: left;">Roles</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border-bottom: 1px solid #dee2e6;">admin</td>
+                    <td style="padding: 0.75rem; border-bottom: 1px solid #dee2e6;">admin123</td>
+                    <td style="padding: 0.75rem; border-bottom: 1px solid #dee2e6;">
+                        <span class="badge admin">ADMIN</span>
+                        <span class="badge manager">MANAGER</span>
+                        <span class="badge user">USER</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border-bottom: 1px solid #dee2e6;">manager</td>
+                    <td style="padding: 0.75rem; border-bottom: 1px solid #dee2e6;">manager123</td>
+                    <td style="padding: 0.75rem; border-bottom: 1px solid #dee2e6;">
+                        <span class="badge manager">MANAGER</span>
+                        <span class="badge user">USER</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem;">user</td>
+                    <td style="padding: 0.75rem;">user123</td>
+                    <td style="padding: 0.75rem;">
+                        <span class="badge user">USER</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>🔗 API Endpoints</h2>
+            <p>Test REST API with HTTP Basic authentication using curl:</p>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 1rem; border-radius: 8px; overflow-x: auto; margin-top: 1rem;">
+# Public endpoint (no auth)
+curl http://localhost:8085/api/public/health
+
+# User endpoint (any authenticated user)
+curl -u user:user123 http://localhost:8085/api/user/whoami
+
+# Manager endpoint
+curl -u manager:manager123 http://localhost:8085/api/manager/reports
+
+# Admin endpoint
+curl -u admin:admin123 http://localhost:8085/api/admin/users
+            </pre>
+        </div>
+    </div>
+</body>
+</html>

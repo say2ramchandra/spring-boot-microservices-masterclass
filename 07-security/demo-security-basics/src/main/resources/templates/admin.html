@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Security Basics Demo</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #dc3545 0%, #c62828 100%); min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .card { background: white; border-radius: 10px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #dc3545; margin-bottom: 1rem; }
+        h2 { color: #555; margin-bottom: 1rem; }
+        p { color: #666; line-height: 1.6; margin-bottom: 1rem; }
+        .nav { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .nav a { padding: 0.75rem 1.5rem; background: #dc3545; color: white; text-decoration: none; border-radius: 5px; }
+        .nav a:hover { background: #c62828; }
+        .nav a.secondary { background: #667eea; }
+        .nav a.secondary:hover { background: #5a6fd6; }
+        .admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .admin-item { padding: 1.5rem; background: #fff5f5; border-radius: 8px; border: 1px solid #ffcdd2; cursor: pointer; transition: transform 0.2s; }
+        .admin-item:hover { transform: translateY(-3px); }
+        .admin-item h3 { color: #dc3545; margin-bottom: 0.5rem; }
+        .admin-item p { color: #666; font-size: 0.9rem; margin: 0; }
+        .warning { background: #fff3cd; border: 1px solid #ffc107; padding: 1rem; border-radius: 5px; color: #856404; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="nav">
+                <a th:href="@{/home}" class="secondary">Home</a>
+                <a th:href="@{/dashboard}" class="secondary">Dashboard</a>
+                <a th:href="@{/profile}" class="secondary">Profile</a>
+                <a th:href="@{/manager}" class="secondary">Manager</a>
+                <a th:href="@{/admin}">Admin</a>
+                <a th:href="@{/logout}">Logout</a>
+            </div>
+
+            <h1>🛡️ Admin Panel</h1>
+            <p th:text="${message}">Welcome to the Admin Panel!</p>
+            <p>This page is only accessible to users with the <strong>ADMIN</strong> role.</p>
+        </div>
+
+        <div class="card warning">
+            ⚠️ <strong>Security Notice:</strong> You are accessing a restricted administrative area. 
+            All actions are logged for security purposes.
+        </div>
+
+        <div class="card">
+            <h2>Administrative Functions</h2>
+            <div class="admin-grid">
+                <a th:href="@{/admin/users}" style="text-decoration: none;">
+                    <div class="admin-item">
+                        <h3>👥 User Management</h3>
+                        <p>Create, edit, and manage user accounts</p>
+                    </div>
+                </a>
+                <div class="admin-item">
+                    <h3>🔐 Security Settings</h3>
+                    <p>Configure authentication and authorization</p>
+                </div>
+                <div class="admin-item">
+                    <h3>📊 System Logs</h3>
+                    <p>View system and security audit logs</p>
+                </div>
+                <div class="admin-item">
+                    <h3>⚙️ Configuration</h3>
+                    <p>Application settings and preferences</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>API Access (Admin Only)</h2>
+            <p>Test admin API endpoints:</p>
+            <pre style="background: #2d2d2d; color: #f8f8f2; padding: 1rem; border-radius: 8px; overflow-x: auto;">
+# Get all users
+curl -u admin:admin123 http://localhost:8085/api/admin/users
+
+# Get system settings
+curl -u admin:admin123 http://localhost:8085/api/admin/settings
+
+# Get system info
+curl -u admin:admin123 http://localhost:8085/api/admin/system
+            </pre>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.ehcache.org/v3"
+        xsi:schemaLocation="http://www.ehcache.org/v3
+                            http://www.ehcache.org/schema/ehcache-core-3.0.xsd">
+
+    <!-- ========================================
+         CACHE TEMPLATES (Reusable configurations)
+         ======================================== -->
+    
+    <!-- Short-lived cache template -->
+    <cache-template name="short-lived">
+        <expiry>
+            <ttl unit="minutes">5</ttl>
+        </expiry>
+        <heap unit="entries">100</heap>
+    </cache-template>
+    
+    <!-- Long-lived cache template -->
+    <cache-template name="long-lived">
+        <expiry>
+            <ttl unit="hours">1</ttl>
+        </expiry>
+        <heap unit="entries">1000</heap>
+    </cache-template>
+    
+    <!-- ========================================
+         DEFAULT TEMPLATE for Hibernate
+         ======================================== -->
+    
+    <cache-template name="default">
+        <expiry>
+            <ttl unit="minutes">30</ttl>
+        </expiry>
+        <listeners>
+            <listener>
+                <class>com.masterclass.hibernate.caching.listener.CacheEventLogger</class>
+                <event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+                <event-ordering-mode>UNORDERED</event-ordering-mode>
+                <events-to-fire-on>CREATED</events-to-fire-on>
+                <events-to-fire-on>EXPIRED</events-to-fire-on>
+                <events-to-fire-on>EVICTED</events-to-fire-on>
+            </listener>
+        </listeners>
+        <resources>
+            <heap unit="entries">500</heap>
+        </resources>
+    </cache-template>
+    
+    <!-- ========================================
+         ENTITY CACHES
+         ======================================== -->
+    
+    <!-- Product entity cache -->
+    <cache alias="com.masterclass.hibernate.caching.entity.Product" uses-template="default">
+        <expiry>
+            <ttl unit="minutes">30</ttl>
+        </expiry>
+        <heap unit="entries">500</heap>
+    </cache>
+    
+    <!-- Category entity cache -->
+    <cache alias="com.masterclass.hibernate.caching.entity.Category" uses-template="long-lived">
+        <expiry>
+            <ttl unit="hours">2</ttl>
+        </expiry>
+        <heap unit="entries">100</heap>
+    </cache>
+    
+    <!-- ========================================
+         QUERY CACHE
+         ======================================== -->
+    
+    <!-- Default query results cache -->
+    <cache alias="default-query-results-region" uses-template="short-lived">
+        <expiry>
+            <ttl unit="minutes">5</ttl>
+        </expiry>
+        <heap unit="entries">200</heap>
+    </cache>
+    
+    <!-- Timestamps cache (required for query cache) -->
+    <cache alias="default-update-timestamps-region">
+        <expiry>
+            <none/>
+        </expiry>
+        <heap unit="entries">1000</heap>
+    </cache>
+    
+    <!-- ========================================
+         COLLECTION CACHES
+         ======================================== -->
+    
+    <!-- Category products collection cache -->
+    <cache alias="com.masterclass.hibernate.caching.entity.Category.products" uses-template="default">
+        <heap unit="entries">200</heap>
+    </cache>
+
+</config>

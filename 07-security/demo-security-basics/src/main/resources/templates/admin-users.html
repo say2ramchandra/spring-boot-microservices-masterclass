@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - User Management</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #dc3545 0%, #c62828 100%); min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .card { background: white; border-radius: 10px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #dc3545; margin-bottom: 1rem; }
+        h2 { color: #555; margin-bottom: 1rem; }
+        p { color: #666; margin-bottom: 1rem; }
+        .nav { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .nav a { padding: 0.75rem 1.5rem; background: #dc3545; color: white; text-decoration: none; border-radius: 5px; }
+        .nav a:hover { background: #c62828; }
+        .nav a.secondary { background: #667eea; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #dee2e6; }
+        th { background: #f8f9fa; color: #333; }
+        .badge { display: inline-block; padding: 0.25rem 0.5rem; background: #28a745; color: white; border-radius: 4px; font-size: 0.75rem; margin: 0.1rem; }
+        .badge.admin { background: #dc3545; }
+        .badge.manager { background: #fd7e14; }
+        .badge.user { background: #17a2b8; }
+        .status-active { color: #28a745; }
+        .status-inactive { color: #dc3545; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="nav">
+                <a th:href="@{/home}" class="secondary">Home</a>
+                <a th:href="@{/dashboard}" class="secondary">Dashboard</a>
+                <a th:href="@{/admin}">Admin</a>
+                <a th:href="@{/admin/users}">Users</a>
+                <a th:href="@{/logout}">Logout</a>
+            </div>
+
+            <h1>👥 User Management</h1>
+            <p th:text="${message}">User Management (Admin Only)</p>
+            <p>This page demonstrates <code>@PreAuthorize("hasRole('ADMIN')")</code> method-level security.</p>
+        </div>
+
+        <div class="card">
+            <h2>Registered Users</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Roles</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>admin</td>
+                        <td>admin@example.com</td>
+                        <td>
+                            <span class="badge admin">ADMIN</span>
+                            <span class="badge manager">MANAGER</span>
+                            <span class="badge user">USER</span>
+                        </td>
+                        <td class="status-active">✅ Active</td>
+                    </tr>
+                    <tr>
+                        <td>manager</td>
+                        <td>manager@example.com</td>
+                        <td>
+                            <span class="badge manager">MANAGER</span>
+                            <span class="badge user">USER</span>
+                        </td>
+                        <td class="status-active">✅ Active</td>
+                    </tr>
+                    <tr>
+                        <td>user</td>
+                        <td>user@example.com</td>
+                        <td>
+                            <span class="badge user">USER</span>
+                        </td>
+                        <td class="status-active">✅ Active</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

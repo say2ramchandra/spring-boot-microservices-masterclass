@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  # Zipkin - Distributed tracing UI
+  zipkin:
+    image: openzipkin/zipkin:latest
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+    environment:
+      - STORAGE_TYPE=mem
+    networks:
+      - tracing
+    restart: unless-stopped
+
+networks:
+  tracing:
+    driver: bridge
