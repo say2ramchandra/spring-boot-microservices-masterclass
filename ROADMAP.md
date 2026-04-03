@@ -38,7 +38,7 @@
         ▼                               ▼
 ┌──────────────┐              ┌──────────────┐
 │  Module 05:  │              │  Module 06:  │
-│  Messaging   │              │  Security    │
+│Spring Cloud  │              │  Messaging   │
 │  ⏱️  5-7 days │              │  ⏱️  5-7 days │
 └──────┬───────┘              └──────┬───────┘
        │                              │
@@ -46,7 +46,7 @@
                       │
                       ▼
         ┌───────────────────────────────┐
-        │   Module 07: Observability   │
+        │   Module 07: Security        │
         │   ⏱️  4-5 days                │
         └───────────────┬───────────────┘
                         │
@@ -58,25 +58,32 @@
                         │
                         ▼
         ┌───────────────────────────────┐
-        │   Module 09: DevOps          │
+        │   Module 09: Observability   │
+        │   ⏱️  4-5 days                │
+        └───────────────┬───────────────┘
+                        │
+                        ▼
+        ┌───────────────────────────────┐
+        │   Module 10: DevOps          │
+        │   🔴 Advanced Level           │
         │   ⏱️  7-10 days               │
         └───────────────┬───────────────┘
                         │
                         ▼
         ┌───────────────────────────────┐
-        │   Module 10: DB Patterns     │
+        │ Module 11: Advanced Patterns │
         │   🔴 Advanced Level           │
         │   ⏱️  5-7 days                │
         └───────────────┬───────────────┘
                         │
                         ▼
         ┌───────────────────────────────┐
-        │   Module 11: Advanced Topics │
+        │   Module 13: Database        │
         │   🔴 Advanced Level           │
-        │   ⏱️  5-7 days                │
+        │   ⏱️  7-10 days               │
         └───────────────┬───────────────┘
-                        │
-                        ▼
+                │
+                ▼
         ┌───────────────────────────────┐
         │   Module 12: Capstone        │
         │   🎯 Project Level            │

@@ -729,4 +729,49 @@ public class ProductControllerV2 {
 
 ---
 
+## 💡 Test Your Knowledge
+
+1. **What is the primary role of the Shared Service?**
+   - A) Serve clients directly
+   - B) Act as single source of truth for BFFs to consume
+   - C) Handle UI rendering
+   - D) Manage user sessions
+
+2. **Why is centralized data management important?**
+   - A) Reduces code complexity
+   - B) Ensures data consistency across all BFFs
+   - C) Makes debugging easier
+   - D) All of the above
+
+3. **What port does Shared Service run on?**
+   - A) 8080
+   - B) 8100
+   - C) 8101
+   - D) 8102
+
+4. **Should clients (mobile/web apps) call Shared Service directly?**
+   - A) Yes, always
+   - B) No, they should call their respective BFFs
+   - C) Only for authentication
+   - D) Only for images
+
+5. **What advantage does Shared Service provide for scaling?**
+   - A) Can scale independently from BFFs
+   - B) Reduces server costs
+   - C) Eliminates database needs
+   - D) Removes need for load balancers
+
+<details>
+<summary>📝 Answers</summary>
+
+1. **B** - Shared Service is single source of truth for BFFs
+2. **D** - All listed benefits (consistency, simplicity, debugging)
+3. **B** - Shared Service runs on port 8100
+4. **B** - Clients should call BFFs, not Shared Service directly
+5. **A** - Shared Service can scale independently from BFFs
+
+</details>
+
+---
+
 **Shared Service is the foundation of the BFF pattern!** 🏗️✨

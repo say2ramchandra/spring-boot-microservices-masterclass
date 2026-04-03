@@ -434,4 +434,17 @@ static GenericContainer<?> container = new GenericContainer<>("image")
 
 ---
 
+## Test Your Knowledge
+
+### Q1: What is @SpringBootTest used for?
+**A:** Creates full application context for integration tests. Tests interact with real beans, can use actual database, web layer, etc.
+
+### Q2: What are Testcontainers and why use them?
+**A:** Throwaway Docker containers for tests. Provides real databases/brokers instead of mocks. Tests match production behavior.
+
+### Q3: When would you use @DataJpaTest over @SpringBootTest?
+**A:** @DataJpaTest: Focused JPA testing, only loads repository layer, faster. Use for testing queries/mappings. @SpringBootTest for full integration.
+
+---
+
 _Test with real dependencies, deploy with confidence! 🐳_

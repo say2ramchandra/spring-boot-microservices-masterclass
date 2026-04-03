@@ -700,3 +700,16 @@ Circuit Breaker is a critical pattern for building resilient microservices. Spri
 - ✅ Time Limiter (prevent long waits)
 
 All patterns are thoroughly covered in Module 04 with working examples and production-ready code.
+
+---
+
+## Test Your Knowledge
+
+### Q1: What are the three states of a Circuit Breaker?
+**A:** CLOSED (normal operation), OPEN (failing fast, no calls allowed), HALF_OPEN (testing if service recovered).
+
+### Q2: What triggers a Circuit Breaker to open?
+**A:** When failure rate exceeds threshold (e.g., 50% failures in last 10 calls) or slow call rate exceeds threshold.
+
+### Q3: What's the difference between Circuit Breaker and Retry?
+**A:** Retry: Retries failed calls immediately. Circuit Breaker: Stops calling after failures, gives service time to recover. Often used together.

@@ -756,7 +756,7 @@ Supplier<User> createGuest = () -> new User("Guest");
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 **Q1: What is a functional interface?**
 A: An interface with exactly one abstract method. It can have multiple default or static methods. Can be implemented using lambda expressions.

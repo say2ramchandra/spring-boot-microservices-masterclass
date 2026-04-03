@@ -216,7 +216,7 @@ public void checkSecurity(JoinPoint jp) {
 4. ✅ **@Around best practices** - Always call proceed()
 5. ✅ **Clear logging** - Shows aspect execution flow
 
-## Common Interview Questions
+## Test Your Knowledge
 
 **Q: What's the difference between @Before and @Around?**
 A: @Before runs before method, can't prevent execution. @Around can control if/when method executes.
@@ -258,7 +258,7 @@ In Spring Boot, many features use AOP:
 2. Modify pointcut expressions
 3. Create your own custom aspects
 4. Add exception handling aspects
-5. Complete [Module 03: Spring Boot Fundamentals](../../03-spring-boot-fundamentals/)
+5. Complete [Module 03: Spring Boot Fundamentals](../../../03-spring-boot-fundamentals/)
 
 ---
 

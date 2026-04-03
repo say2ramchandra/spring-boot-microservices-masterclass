@@ -12,8 +12,8 @@
 - [Status Codes](#status-codes)
 - [CRUD Operations](#crud-operations)
 - [Best Practices](#best-practices)
-- [Demo Project](#demo-project)
-- [Interview Questions](#interview-questions)
+- [Hands-on Demo](#hands-on-demo)
+- [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -415,7 +415,7 @@ public ResponseEntity<Product> create(@RequestBody @Valid ProductRequest request
 
 ---
 
-## Demo Project
+## Hands-on Demo
 
 See [demo-rest-api](demo-rest-api/) for a complete REST API with:
 - Full CRUD operations
@@ -426,7 +426,7 @@ See [demo-rest-api](demo-rest-api/) for a complete REST API with:
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What's the difference between @Controller and @RestController?
 

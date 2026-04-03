@@ -371,7 +371,7 @@ server:
    - Timeout and retry configuration
    - Circuit breaker settings
 
-## Interview Questions & Answers
+## Test Your Knowledge & Answers
 
 **Q: What's the difference between @Value and @ConfigurationProperties?**
 

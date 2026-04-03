@@ -72,33 +72,20 @@ curl -X POST http://localhost:8084/api/messages/notification/email \
 
 ---
 
-## 🔥 Kafka Demo (Coming Soon)
+## 🔥 Kafka Demo
 
 ### Setup Kafka
 
-**Using Docker Compose**:
-```yaml
-version: '3'
-services:
-  zookeeper:
-    image: confluentinc/cp-zookeeper:latest
-    ports:
-      - "2181:2181"
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-      
-  kafka:
-    image: confluentinc/cp-kafka:latest
-    ports:
-      - "9092:9092"
-    environment:
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
-```
-
+**Using Docker Compose** (included in demo folder):
 ```bash
+cd 06-messaging/demo-kafka
 docker-compose up -d
 ```
+
+This starts:
+- **Zookeeper**: Port 2181
+- **Kafka Broker**: Port 9092
+- **Kafka UI** (optional): Port 8086
 
 ### Run Kafka Demo
 
@@ -107,12 +94,42 @@ cd 06-messaging/demo-kafka
 mvn spring-boot:run
 ```
 
-### Features (Planned)
-- ✅ Producer sending events
-- ✅ Consumer with manual offset management
-- ✅ Partitioning strategy
-- ✅ Consumer groups
-- ✅ Event sourcing pattern
+Application runs on **port 8085**.
+
+### Features Demonstrated
+- ✅ **Producer** - Async message sending with callbacks
+- ✅ **Consumer** - @KafkaListener with manual acknowledgment
+- ✅ **Multiple Topics** - Order, Payment, Notification events
+- ✅ **Partitioning** - Message key-based partition affinity
+- ✅ **Consumer Groups** - Load balancing across consumers
+- ✅ **JSON Serialization** - Jackson-based message serialization
+
+### Quick Test
+
+**Create Order Event**:
+```bash
+curl -X POST http://localhost:8085/api/orders
+```
+
+**Process Payment Event**:
+```bash
+curl -X POST http://localhost:8085/api/payments
+```
+
+**Send Notification Event**:
+```bash
+curl -X POST http://localhost:8085/api/notifications
+```
+
+**View Statistics**:
+```bash
+curl http://localhost:8085/api/messages/stats
+```
+
+### Kafka Topics
+- `order-events` - Order lifecycle (created, updated, cancelled)
+- `payment-events` - Payment processing (initiated, completed, failed)
+- `notification-events` - Notifications (email, SMS, push)
 
 ---
 

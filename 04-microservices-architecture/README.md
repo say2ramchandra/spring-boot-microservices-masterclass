@@ -493,7 +493,7 @@ Monitors all microservices health, metrics, logs.
 
 ---
 
-## 🎓 Interview Questions
+## Test Your Knowledge
 
 ### Q1: What are the main differences between monolith and microservices?
 

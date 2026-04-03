@@ -348,6 +348,19 @@ A: Different clients have different constraints. Mobile needs lightweight payloa
 **Q: Isn't maintaining multiple BFFs overhead?**  
 A: Yes, but the benefits outweigh costs when you have distinct client types. Each team can optimize for their platform independently.
 
+---
+
+## Test Your Knowledge
+
+### Q1: What is the BFF (Backend for Frontend) pattern?
+**A:** Separate backend services for each client type (web, mobile, IoT). Each BFF aggregates and transforms data optimized for its client's needs.
+
+### Q2: How does the Strangler Fig pattern work?
+**A:** Gradually migrate from monolith by routing new features to microservices while keeping old system running. Eventually replace entire monolith.
+
+### Q3: When should you use GraphQL over REST?
+**A:** When clients need flexible queries, want to avoid over/under-fetching, or have varying data requirements. REST better for simple, cacheable resources.
+
 **Q: When should I use GraphQL instead of BFF?**  
 A: GraphQL is great when you have many client types making ad-hoc queries. BFF is better when you have 2-3 distinct platforms with predictable needs.
 

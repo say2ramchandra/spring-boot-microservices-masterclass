@@ -274,5 +274,5 @@ The application initializes with:
 ## Related Topics
 
 - [MongoDB README](../README.md)
-- [MongoDB Aggregation Demo](../demo-mongodb-aggregation/)
+- [MongoDB Module Guide](../README.md)
 - [Hibernate Caching](../../02-hibernate-advanced/demo-hibernate-caching/)

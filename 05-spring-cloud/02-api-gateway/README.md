@@ -10,7 +10,7 @@
 7. [Security and Authentication](#security-and-authentication)
 8. [Rate Limiting and Throttling](#rate-limiting-and-throttling)
 9. [Best Practices](#best-practices)
-10. [Interview Questions](#interview-questions)
+10. [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -1057,7 +1057,7 @@ public class SecurityConfig {
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is an API Gateway and why do we need it?
 

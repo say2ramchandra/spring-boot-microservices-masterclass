@@ -11,7 +11,7 @@
 8. [Rate Limiter Pattern](#rate-limiter-pattern)
 9. [Fallback Strategies](#fallback-strategies)
 10. [Best Practices](#best-practices)
-11. [Interview Questions](#interview-questions)
+11. [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -697,7 +697,7 @@ public void testCircuitBreaker() {
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is a Circuit Breaker pattern and why is it important in microservices?
 

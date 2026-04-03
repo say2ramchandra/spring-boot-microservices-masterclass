@@ -10,8 +10,8 @@
 - [Service Discovery](#service-discovery)
 - [API Gateway](#api-gateway)
 - [Design Principles](#design-principles)
-- [Demo Project](#demo-project)
-- [Interview Questions](#interview-questions)
+- [Hands-on Demo](#hands-on-demo)
+- [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -400,7 +400,7 @@ public Order createOrder(
 
 ---
 
-## Demo Project
+## Hands-on Demo
 
 See [demo-ecommerce-microservices](demo-ecommerce-microservices/) for a complete example with:
 
@@ -443,7 +443,7 @@ See [demo-ecommerce-microservices](demo-ecommerce-microservices/) for a complete
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is the difference between monolith and microservices?
 

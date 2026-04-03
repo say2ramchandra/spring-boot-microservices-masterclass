@@ -848,7 +848,7 @@ docker-compose -f docker/docker-compose-backing.yml down -v
 
 Once setup is complete:
 
-1. ✅ Read [API-DOCUMENTATION.md](./API-DOCUMENTATION.md) for API references
+1. ✅ Read [PROJECT-IMPLEMENTATION-GUIDE.md](./PROJECT-IMPLEMENTATION-GUIDE.md) for API references
 2. ✅ Review [ARCHITECTURE.md](./ARCHITECTURE.md) for system design
 3. ✅ Start testing workflows (user registration, orders, etc.)
 4. ✅ Explore service code in each service folder

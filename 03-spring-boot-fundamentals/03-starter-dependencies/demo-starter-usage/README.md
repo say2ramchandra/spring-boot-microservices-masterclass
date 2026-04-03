@@ -365,7 +365,7 @@ Use `@EnableCaching` and `@Cacheable` - it just works!
 4. **Production-ready**: Actuator provides monitoring out of the box
 5. **Flexibility**: Easy to swap implementations (Tomcat → Jetty)
 
-## Interview Questions
+## Test Your Knowledge
 
 **Q: What does spring-boot-starter-web include?**
 A: Spring MVC, embedded Tomcat, Jackson, validation, error handling

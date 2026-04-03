@@ -37,18 +37,16 @@ By the end of this module, you will be able to:
 ├── 02-kubernetes/
 │   ├── README.md                           # Kubernetes fundamentals
 │   ├── demo-basic-deployment/              # K8s deployment
-│   ├── demo-service-discovery/             # Service mesh
-│   └── demo-configmaps-secrets/            # Configuration management
+│   └── (Service discovery + ConfigMaps/Secrets covered in docs)
 ├── 03-ci-cd/
 │   ├── README.md                           # CI/CD fundamentals
 │   ├── demo-github-actions/                # GitHub Actions pipeline
-│   ├── demo-jenkins/                       # Jenkins pipeline
-│   └── demo-gitops/                        # GitOps with ArgoCD
+│   └── demo-gitops-argocd/                 # GitOps with ArgoCD
 └── 04-production-deployment/
-    ├── README.md                           # Production best practices
-    ├── demo-blue-green/                    # Blue-green deployment
-    ├── demo-canary/                        # Canary releases
-    └── demo-monitoring/                    # Production monitoring
+   ├── README.md                            # Production rollout strategies
+   ├── demo-blue-green/                     # Blue-green deployment
+   ├── demo-canary-release/                 # Canary release rollout
+   └── demo-production-monitoring/          # Prometheus + Grafana baseline
 ```
 
 ---
@@ -381,6 +379,25 @@ After mastering this module, consider:
 - **Docker Certified Associate (DCA)**
 - **Certified Kubernetes Administrator (CKA)**
 - **Certified Kubernetes Application Developer (CKAD)**
+
+---
+
+## Test Your Knowledge
+
+### Q1: What's the difference between a Docker image and container?
+**A:** Image is a read-only template with application and dependencies. Container is a running instance of an image with its own filesystem and process.
+
+### Q2: What is a multi-stage Docker build?
+**A:** Uses multiple FROM statements. Build stages create intermediate images. Final stage copies only needed artifacts. Results in smaller production images.
+
+### Q3: Explain the difference between Deployment and StatefulSet in Kubernetes.
+**A:** Deployment: Stateless apps, pods are interchangeable. StatefulSet: Stateful apps, pods have stable network IDs, ordered deployment, and persistent storage.
+
+### Q4: What is a Kubernetes Service and its types?
+**A:** Abstraction to expose pods. Types: ClusterIP (internal), NodePort (external via node port), LoadBalancer (external via cloud LB), ExternalName (DNS alias).
+
+### Q5: What is GitOps?
+**A:** Infrastructure and deployment defined in Git. Changes via pull requests. Automated sync between Git state and cluster state. Tools: ArgoCD, Flux.
 
 ---
 

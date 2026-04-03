@@ -6,17 +6,17 @@
 |--------|--------------|--------|-------------|
 | **01** | demo-stream-operations | ✅ Complete | Java Streams & Lambdas |
 | **02** | demo-bean-lifecycle | ✅ Complete | Spring Bean Lifecycle |
-| **03** | demo-complete-rest-api | ✅ Complete | REST API with CRUD |
+| **03** | demo-rest-api | ✅ Complete | REST API with CRUD |
 | **05** | demo-eureka-server | ✅ **NEW!** | Service Discovery |
 | **05** | demo-product-service | ✅ **NEW!** | Product Microservice |
 | **05** | demo-order-service | ✅ **NEW!** | Order Service with Feign |
 | **05** | demo-api-gateway | ✅ **NEW!** | API Gateway |
 | **06** | demo-rabbitmq | ✅ **NEW!** | RabbitMQ Messaging |
-| **06** | demo-kafka | 🟡 Planned | Kafka Event Streaming |
-| **07** | demo-jwt-auth | 🟡 Planned | JWT Security |
-| **08** | demo-testing-complete | 🟡 Planned | Comprehensive Testing |
+| **06** | demo-kafka | ✅ Complete | Kafka Event Streaming |
+| **07** | demo-jwt-auth | ✅ Complete | JWT Security |
+| **08** | demo-junit-mockito (+5 demos) | ✅ Complete | Comprehensive Testing |
 
-**Total Demos**: 8 complete, 3 planned = **11 total**
+**Total Demos**: 11 complete, 0 planned = **11 total**
 
 ---
 
@@ -42,7 +42,7 @@ mvn spring-boot:run
 
 ### Module 03: REST API Demo
 ```bash
-cd 03-spring-boot-fundamentals/02-rest-api/demo-complete-rest-api
+cd 03-spring-boot-fundamentals/01-rest-api-basics/demo-rest-api
 mvn spring-boot:run
 # Visit: http://localhost:8080/swagger-ui.html
 ```
@@ -157,7 +157,7 @@ curl -X POST http://localhost:8084/api/messages/notification/email \
 
 ### Path 3: Async Communication (Week 3-4)
 1. Module 06 - RabbitMQ Demo
-2. Module 06 - Kafka Demo (when available)
+2. Module 06 - Kafka Demo
 3. Integrate with Module 05 services
 
 **Output**: Event-driven architecture skills
@@ -314,23 +314,20 @@ curl -X POST http://localhost:8084/api/messages/broadcast \
 
 ---
 
-## 📚 Next Demos (Coming Soon)
+## 📚 Additional Available Demos
 
-### Module 07: JWT Security Demo
-**Planned Features**:
-- User registration and login
-- JWT token generation
-- Token validation filter
-- Protected endpoints
-- Refresh token mechanism
+### Module 07: Security Demos
+- `07-security/demo-security-basics`
+- `07-security/demo-jwt-auth`
+- `07-security/demo-oauth2`
 
-### Module 08: Testing Demo
-**Planned Features**:
-- Unit tests with JUnit 5
-- Integration tests with TestContainers
-- Contract tests with Spring Cloud Contract
-- E2E tests with REST Assured
-- Test coverage with JaCoCo
+### Module 08: Testing Demos
+- `08-testing/01-unit-testing/demo-junit-mockito`
+- `08-testing/02-integration-testing/demo-testcontainers`
+- `08-testing/04-e2e-testing/demo-rest-assured`
+- `08-testing/05-automation-testing/demo-selenium-basics`
+- `08-testing/05-automation-testing/demo-cucumber-bdd`
+- `08-testing/05-automation-testing/demo-testng-framework`
 
 ---
 
@@ -377,8 +374,8 @@ After running each demo, verify:
 
 ---
 
-**Last Updated**: After Module 06 RabbitMQ demo creation
+**Last Updated**: After Module 07 security demos and Module 08 testing demos verification
 **Total Lines of Demo Code**: 5,000+
-**Ready-to-Run Demos**: 8
+**Ready-to-Run Demos**: 11
 
 🚀 **Start building and learning!**

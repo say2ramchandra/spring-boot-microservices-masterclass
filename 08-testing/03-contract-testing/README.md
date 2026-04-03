@@ -281,12 +281,25 @@ mvn clean install
 
 Contract testing is most valuable in multi-service architectures. This module provides the concepts and structure. For a full demo:
 
-1. You'd need 2+ services (e.g., order-service + product-service)
-2. Contract definitions shared between them
-3. Provider tests auto-generated from contracts
-4. Consumer tests using stubs
+1. Runnable sample now available: **[demo-contract-testing](demo-contract-testing/)**
+2. You can extend it to 2+ services (e.g., order-service + product-service)
+3. Contract definitions can be shared between provider and consumer repos
+4. Provider tests verify contract shape; consumer tests can use generated stubs
 
-For the scope of this masterclass, we've covered the concepts and approaches. Implementing full contract testing is demonstrated in **Module 05: Spring Cloud** where multiple services interact.
+For advanced multi-service orchestration, extend this sample with stubs and service-to-service test pipelines.
+
+---
+
+## Test Your Knowledge
+
+### Q1: What is consumer-driven contract testing?
+**A:** Consumer defines expected API contract. Provider verifies it meets the contract. Prevents breaking changes that affect consumers.
+
+### Q2: What's the difference between Pact and Spring Cloud Contract?
+**A:** Pact: Language-agnostic, JSON contracts, broker-based sharing. Spring Cloud Contract: Spring ecosystem, Groovy/YAML contracts, generates tests.
+
+### Q3: When should you use contract testing?
+**A:** When multiple teams own different services. When API changes could break consumers. When you need confidence in service compatibility.
 
 ---
 

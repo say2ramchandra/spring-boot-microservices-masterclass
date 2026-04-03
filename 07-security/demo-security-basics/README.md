@@ -202,4 +202,4 @@ Access database at: http://localhost:8085/h2-console
 
 After mastering this demo, proceed to:
 - `demo-jwt-auth` - JWT token-based authentication
-- `demo-oauth2-client` - OAuth2 social login
+- `demo-oauth2` - OAuth2 social login

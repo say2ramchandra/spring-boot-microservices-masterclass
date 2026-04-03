@@ -12,8 +12,8 @@
 - [Excluding Auto-Configuration](#excluding-auto-configuration)
 - [Debugging Auto-Configuration](#debugging-auto-configuration)
 - [Best Practices](#best-practices)
-- [Demo Project](#demo-project)
-- [Interview Questions](#interview-questions)
+- [Hands-on Demo](#hands-on-demo)
+- [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -611,7 +611,7 @@ public class MyAppProperties {
 
 ---
 
-## Demo Project
+## Hands-on Demo
 
 See [demo-auto-configuration](demo-auto-configuration/) for a complete working example that demonstrates:
 
@@ -632,7 +632,7 @@ mvn spring-boot:run
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is the difference between @Configuration and @SpringBootConfiguration?
 

@@ -444,4 +444,49 @@ RxJava, Project Reactor - advanced observable patterns.
 
 ---
 
+## 💡 Test Your Knowledge
+
+1. **What problem does the Observer Pattern solve?**
+   - A) Memory management
+   - B) Tight coupling between event publishers and subscribers
+   - C) Database connections
+   - D) Authentication
+
+2. **How does Spring implement the Observer Pattern?**
+   - A) Using @Observer annotation
+   - B) Through ApplicationEventPublisher and @EventListener
+   - C) Via XML configuration
+   - D) Using WebSocket only
+
+3. **What does @Async do on an @EventListener method?**
+   - A) Disables the listener
+   - B) Makes the listener run in a separate thread
+   - C) Prioritizes the listener
+   - D) Validates events
+
+4. **How do you control listener execution order?**
+   - A) @Priority annotation
+   - B) @Order annotation (lower number = higher priority)
+   - C) Alphabetical order
+   - D) Cannot be controlled
+
+5. **What is the benefit of using Spring Events over direct method calls?**
+   - A) Faster execution
+   - B) Decoupled components, adding listeners without modifying publisher
+   - C) Better security
+   - D) Smaller code size
+
+<details>
+<summary>📝 Answers</summary>
+
+1. **B** - Observer decouples event publishers from subscribers
+2. **B** - Spring uses ApplicationEventPublisher and @EventListener
+3. **B** - @Async makes the listener execute in a separate thread
+4. **B** - @Order annotation controls order (lower = earlier)
+5. **B** - Decoupled components: add new listeners without changing publisher
+
+</details>
+
+---
+
 **Happy Observing!** 👁️✨

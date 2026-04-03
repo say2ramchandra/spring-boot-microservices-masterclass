@@ -1360,3 +1360,16 @@ public void flakyTest() {
 - [Cucumber Documentation](https://cucumber.io/docs/cucumber/)
 - [TestNG Documentation](https://testng.org/doc/documentation-main.html)
 - [WebDriverManager](https://github.com/bonigarcia/webdrivermanager)
+
+---
+
+## Test Your Knowledge
+
+### Q1: What is the Page Object Model (POM) pattern?
+**A:** Design pattern where each page is a class with locators and actions. Separates test logic from page structure. Improves maintainability.
+
+### Q2: What's the difference between Selenium, TestNG, and Cucumber?
+**A:** Selenium: Browser automation. TestNG: Test framework (assertions, parallel execution). Cucumber: BDD framework (Gherkin syntax for business-readable tests).
+
+### Q3: When would you use implicit vs explicit waits in Selenium?
+**A:** Implicit: Global timeout for finding elements. Explicit: Wait for specific condition before proceeding. Prefer explicit for reliability.

@@ -1192,7 +1192,7 @@ public class ScheduledTasks {
 
 ---
 
-## Common Interview Questions
+## Test Your Knowledge
 
 **Q1: What's the difference between `start()` and `run()`?**
 A: `start()` creates a new thread and calls `run()`. Calling `run()` directly executes in the current thread.
@@ -1233,4 +1233,4 @@ Check out the [demo project](demo-concurrency-multithreading/) for working examp
 
 ---
 
-**Next**: Move to [Module 02: Spring Boot Fundamentals](../../02-spring-boot-fundamentals/) 🚀
+**Next**: Move to [Module 03: Spring Boot Fundamentals](../../03-spring-boot-fundamentals/) 🚀

@@ -845,6 +845,19 @@ mvn spring-boot:run
 
 ---
 
+## Test Your Knowledge
+
+### Q1: What are the main Redis data structures?
+**A:** Strings (simple values), Hashes (objects), Lists (queues), Sets (unique items), Sorted Sets (rankings), Streams (event logs).
+
+### Q2: What's the difference between Redis cache-aside and write-through patterns?
+**A:** Cache-aside: App checks cache, loads from DB on miss. Write-through: App writes to cache, cache writes to DB. Cache-aside is simpler, write-through ensures consistency.
+
+### Q3: How does Redis Pub/Sub work?
+**A:** Publishers send messages to channels. Subscribers receive real-time messages from subscribed channels. Messages not persisted - use Streams for durability.
+
+---
+
 ## Related Topics
 
 - [JDBC Fundamentals](../01-jdbc-fundamentals/)

@@ -503,4 +503,49 @@ Function<Double, Double> fixedDiscount = amount -> amount - 20.0;
 
 ---
 
+## 💡 Test Your Knowledge
+
+1. **What is the main purpose of the Strategy Pattern?**
+   - A) To optimize database queries
+   - B) To define interchangeable algorithms at runtime
+   - C) To manage memory allocation
+   - D) To handle exceptions
+
+2. **How does the DiscountContext select the right strategy?**
+   - A) Random selection
+   - B) Maps DiscountType to corresponding strategy with `getType()`
+   - C) User provides the exact class name
+   - D) First strategy registered wins
+
+3. **What interface do all discount strategies implement?**
+   - A) Discountable
+   - B) DiscountStrategy
+   - C) Discount
+   - D) PricingStrategy
+
+4. **How does Spring discover all strategy implementations?**
+   - A) XML configuration
+   - B) Constructor injection of `List<DiscountStrategy>`
+   - C) Manual registration
+   - D) Reflection scanning
+
+5. **What happens when a strategy is not found for a discount type?**
+   - A) Returns 0 discount
+   - B) Uses NoDiscountStrategy as fallback
+   - C) Throws exception
+   - D) Applies maximum discount
+
+<details>
+<summary>📝 Answers</summary>
+
+1. **B** - Strategy defines interchangeable algorithms at runtime
+2. **B** - Context maps DiscountType to strategy via `getType()` method
+3. **B** - All strategies implement DiscountStrategy interface
+4. **B** - Spring injects all implementations via `List<DiscountStrategy>`
+5. **B** - Falls back to NoDiscountStrategy (no discount applied)
+
+</details>
+
+---
+
 **Happy Strategizing!** 🎯✨

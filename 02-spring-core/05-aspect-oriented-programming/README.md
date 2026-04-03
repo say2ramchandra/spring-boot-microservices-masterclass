@@ -712,7 +712,7 @@ Spring Boot uses AOP for:
 
 ---
 
-## Common Interview Questions
+## Test Your Knowledge
 
 **Q: What is AOP and why use it?**
 A: AOP separates cross-cutting concerns (logging, security) from business logic, improving modularity and maintainability.

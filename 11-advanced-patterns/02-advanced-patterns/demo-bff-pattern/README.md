@@ -382,4 +382,49 @@ curl http://localhost:8102/api/mobile/products/1  # Mobile optimized
 
 ---
 
+## 💡 Test Your Knowledge
+
+1. **What problem does the BFF Pattern solve?**
+   - A) Database scaling
+   - B) Different clients needing differently optimized APIs
+   - C) Code compilation
+   - D) File storage
+
+2. **How many BFF services should you create?**
+   - A) One for all clients
+   - B) One per client type (web, mobile, IoT, etc.)
+   - C) As many as possible
+   - D) None, use monolithic backend
+
+3. **What is the role of the Shared Service in this pattern?**
+   - A) Serve clients directly
+   - B) Act as single source of truth that BFFs consume
+   - C) Handle authentication only
+   - D) Store logs
+
+4. **Why does Mobile BFF return less data than Web BFF?**
+   - A) Mobile devices have less storage
+   - B) To reduce bandwidth and improve battery life
+   - C) Mobile apps can't display data
+   - D) Security restrictions
+
+5. **What port does Web BFF run on in this demo?**
+   - A) 8100
+   - B) 8101
+   - C) 8102
+   - D) 8080
+
+<details>
+<summary>📝 Answers</summary>
+
+1. **B** - BFF solves different clients needing differently optimized APIs
+2. **B** - One BFF per client type (web, mobile, etc.)
+3. **B** - Shared Service is single source of truth consumed by BFFs
+4. **B** - Mobile BFF reduces data to save bandwidth and battery
+5. **B** - Web BFF runs on port 8101
+
+</details>
+
+---
+
 **Happy Building!** 🏗️✨

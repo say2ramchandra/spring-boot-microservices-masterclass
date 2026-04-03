@@ -13,8 +13,8 @@
 - [Configuration Precedence](#configuration-precedence)
 - [Property Validation](#property-validation)
 - [Best Practices](#best-practices)
-- [Demo Project](#demo-project)
-- [Interview Questions](#interview-questions)
+- [Hands-on Demo](#hands-on-demo)
+- [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -869,7 +869,7 @@ public class AppProperties {
 
 ---
 
-## Demo Project
+## Hands-on Demo
 
 See [demo-configuration-management](demo-configuration-management/) for a complete working example that demonstrates:
 
@@ -898,7 +898,7 @@ mvn spring-boot:run -Dspring-boot.run.arguments="--server.port=9090"
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is the order of precedence for configuration in Spring Boot?
 

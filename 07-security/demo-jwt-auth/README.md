@@ -249,7 +249,7 @@ curl -X POST http://localhost:8086/api/auth/login \
 ## Next Steps
 
 After mastering JWT authentication, explore:
-- **demo-oauth2-client** - OAuth2 social login (Google, GitHub)
+- **demo-oauth2** - OAuth2 social login (Google, GitHub)
 - Implement token blacklisting
 - Add multiple device support
 - Implement sliding window tokens

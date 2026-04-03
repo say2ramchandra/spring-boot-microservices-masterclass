@@ -946,7 +946,7 @@ public class MongoTransactionConfig {
 | Demo | Description | Port |
 |------|-------------|------|
 | [demo-mongodb-basics](./demo-mongodb-basics/) | CRUD, queries, MongoTemplate | 8084 |
-| [demo-mongodb-aggregation](./demo-mongodb-aggregation/) | Aggregation pipelines | 8085 |
+| [demo-mongodb-basics](./demo-mongodb-basics/) | Aggregation examples and CRUD | 8084 |
 
 ### Running Demos
 
@@ -958,9 +958,7 @@ docker run -d -p 27017:27017 --name mongodb mongo:latest
 cd demo-mongodb-basics
 mvn spring-boot:run
 
-# Run aggregation demo
-cd demo-mongodb-aggregation
-mvn spring-boot:run
+# Aggregation examples are included in demo-mongodb-basics
 ```
 
 ---
@@ -1022,6 +1020,19 @@ public class Product {
     private List<String> tags;
 }
 ```
+
+---
+
+## Test Your Knowledge
+
+### Q1: When should you embed documents vs reference them?
+**A:** Embed: Data accessed together, one-to-few relationship, data doesn't change often. Reference: Many-to-many, large subdocuments, frequently updated data.
+
+### Q2: What is the MongoDB aggregation pipeline?
+**A:** Framework for data transformation using stages: $match (filter), $group (aggregate), $project (reshape), $sort, $limit. Processes documents sequentially.
+
+### Q3: How do MongoDB indexes work?
+**A:** B-tree indexes on specified fields. Compound indexes for multiple fields. Use explain() to verify index usage. Indexes speed reads but slow writes.
 
 ---
 

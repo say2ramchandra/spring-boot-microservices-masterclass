@@ -344,9 +344,9 @@ public OrderService(Dep1 d1, Dep2 d2, Dep3 d3, Dep4 d4,
 
 ## 🔗 Related Topics
 
-- **[Setter Injection](../demo-setter-injection/)** - When to use setter injection
-- **[Field Injection](../demo-field-injection/)** - Why to avoid field injection
-- **[@Qualifier & @Primary](../demo-qualifier-primary/)** - Resolving multiple beans
+- **[Setter Injection](../README.md)** - When to use setter injection
+- **[Field Injection](../README.md)** - Why to avoid field injection
+- **[@Qualifier & @Primary](../README.md)** - Resolving multiple beans
 - **[Bean Lifecycle](../../02-bean-lifecycle/)** - Understanding bean creation
 
 ## 📚 Additional Resources
@@ -376,6 +376,6 @@ public OrderService(Dep1 d1, Dep2 d2, Dep3 d3, Dep4 d4,
 
 ---
 
-**Next Step**: Explore [Setter Injection →](../demo-setter-injection/) to understand when it's appropriate
+**Next Step**: Explore [Setter Injection →](../README.md) to understand when it's appropriate
 
 _Constructor injection: Simple, safe, and testable! 🚀_

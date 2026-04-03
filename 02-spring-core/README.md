@@ -231,6 +231,25 @@ MyBean bean = context.getBean(MyBean.class);
 
 ---
 
+## Test Your Knowledge
+
+### Q1: What are the three types of Dependency Injection in Spring?
+**A:** Constructor injection (recommended), Setter injection, and Field injection (@Autowired on fields).
+
+### Q2: What's the difference between @Component, @Service, @Repository, and @Controller?
+**A:** All are stereotypes for component scanning. @Service indicates business logic, @Repository indicates data access (adds exception translation), @Controller indicates web controller.
+
+### Q3: Explain the difference between singleton and prototype bean scopes.
+**A:** Singleton: One instance per Spring container (default). Prototype: New instance created each time the bean is requested.
+
+### Q4: What is the order of bean lifecycle callbacks?
+**A:** Constructor → @PostConstruct → afterPropertiesSet() → custom init-method → ... bean usage ... → @PreDestroy → destroy() → custom destroy-method.
+
+### Q5: What is AOP and when would you use it?
+**A:** Aspect-Oriented Programming for cross-cutting concerns (logging, security, transactions) without modifying business code. Uses aspects, pointcuts, and advice.
+
+---
+
 **Ready to begin? Start with [Dependency Injection →](01-dependency-injection/)**
 
 _Master Spring Core, and Spring Boot becomes easy!_

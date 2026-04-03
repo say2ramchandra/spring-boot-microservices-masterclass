@@ -197,4 +197,19 @@ mvn spring-boot:run
 
 ---
 
+---
+
+## Test Your Knowledge
+
+### Q1: What's the difference between Factory and Builder patterns?
+**A:** Factory: Creates objects based on type/condition, hides creation logic. Builder: Constructs complex objects step-by-step with fluent API.
+
+### Q2: How does Spring implement the Singleton pattern?
+**A:** Spring container manages bean lifecycle. Default scope is singleton - one instance per ApplicationContext, not per JVM.
+
+### Q3: When would you use Observer pattern in Spring?
+**A:** Event-driven architecture with ApplicationEvent and @EventListener. Decouples publishers from subscribers.
+
+---
+
 **Happy Coding!** 🎨

@@ -26,7 +26,7 @@ mvn exec:java
 **Start here**: Module 03 - Spring Boot Fundamentals
 
 ```bash
-cd 03-spring-boot-fundamentals/04-rest-api-development/demo-complete-rest-api
+cd 03-spring-boot-fundamentals/04-rest-api-development/demo-rest-api
 mvn spring-boot:run
 ```
 
@@ -34,7 +34,7 @@ mvn spring-boot:run
 **Start here**: Module 04 - Microservices Architecture
 
 ```bash
-cd 04-microservices-architecture/01-service-discovery/demo-eureka-server
+cd 04-microservices-architecture/01-microservices-basics/demo-ecommerce-microservices/eureka-server
 mvn spring-boot:run
 ```
 
@@ -148,17 +148,18 @@ Understand errors:
 
 ### Week 5-8: Microservices
 - [ ] Module 04: Microservices Architecture (7-10 days)
-- [ ] Module 05: Messaging & Events (5-7 days)
-- [ ] Module 06: Security (5-7 days)
+- [ ] Module 05: Spring Cloud (5-7 days)
+- [ ] Module 06: Messaging & Events (5-7 days)
 
 ### Week 9-10: Production Features
-- [ ] Module 07: Observability (4-5 days)
+- [ ] Module 07: Security (5-7 days)
 - [ ] Module 08: Testing (3-4 days)
-- [ ] Module 09: Containerization & Deployment (7-10 days)
+- [ ] Module 09: Observability (4-5 days)
 
 ### Week 11-14: Advanced & Capstone
-- [ ] Module 10: Database Patterns (5-7 days)
-- [ ] Module 11: Advanced Topics (5-7 days)
+- [ ] Module 10: DevOps & Deployment (7-10 days)
+- [ ] Module 11: Advanced Patterns & Best Practices (5-7 days)
+- [ ] Module 13: Database Deep Dive (7-10 days)
 - [ ] Module 12: Capstone Project (14-21 days)
 
 **Total Time**: 10-14 weeks with consistent daily practice (2-3 hours/day)

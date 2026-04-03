@@ -12,8 +12,8 @@
 - [Logging Best Practices](#logging-best-practices)
 - [MDC (Mapped Diagnostic Context)](#mdc-mapped-diagnostic-context)
 - [Structured Logging](#structured-logging)
-- [Demo Project](#demo-project)
-- [Interview Questions](#interview-questions)
+- [Hands-on Demo](#hands-on-demo)
+- [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -526,7 +526,7 @@ Output:
 
 ---
 
-## Demo Project
+## Hands-on Demo
 
 See [demo-logging](demo-logging/) for a complete example with:
 - SLF4J logging in all layers
@@ -538,7 +538,7 @@ See [demo-logging](demo-logging/) for a complete example with:
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is SLF4J and why use it?
 

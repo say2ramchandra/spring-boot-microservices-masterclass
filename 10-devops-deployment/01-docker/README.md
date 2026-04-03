@@ -643,4 +643,17 @@ After mastering Docker:
 
 ---
 
+## Test Your Knowledge
+
+### Q1: What's the difference between CMD and ENTRYPOINT?
+**A:** ENTRYPOINT defines the executable (fixed). CMD provides default arguments (can be overridden). Use together: ENTRYPOINT ["java", "-jar"] CMD ["app.jar"].
+
+### Q2: Why use multi-stage builds?
+**A:** Separate build environment from runtime. Final image contains only runtime dependencies. Results in much smaller, more secure images.
+
+### Q3: What is Docker layer caching?
+**A:** Docker caches each instruction layer. Unchanged layers are reused. Order instructions from least to most frequently changing.
+
+---
+
 _"Containers are a way to package software with everything it needs to run." - Docker_

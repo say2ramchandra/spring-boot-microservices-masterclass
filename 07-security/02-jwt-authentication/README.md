@@ -12,7 +12,7 @@ JWT (JSON Web Token) is a compact, URL-safe means of representing claims between
 5. [JWT Security](#jwt-security)
 6. [Best Practices](#best-practices)
 7. [Working Demo](#working-demo)
-8. [Interview Questions](#interview-questions)
+8. [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -842,7 +842,7 @@ public AuthenticationResponse refreshToken(String oldRefreshToken) {
 ## Working Demo
 
 **🎯 Complete working JWT implementation:**
-- **[JWT Authentication Demo](demo-jwt-auth/)**
+- **[JWT Authentication Demo](../demo-jwt-auth/)**
 
 This demo includes:
 - ✅ Complete JWT generation and validation
@@ -856,7 +856,7 @@ This demo includes:
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: Explain how JWT authentication works in Spring Security.
 
@@ -1003,8 +1003,8 @@ public AuthenticationResponse refresh(@RequestBody RefreshTokenRequest request) 
 
 ## Next Steps
 
-- **[Demo Application](demo-jwt-auth/)** - Complete JWT implementation
-- **[Section 03 - OAuth2](../03-oauth2/)** - OAuth2 and OpenID Connect
+- **[Demo Application](../demo-jwt-auth/)** - Complete JWT implementation
+- **[OAuth2 Demo](../demo-oauth2/)** - OAuth2 and OpenID Connect
 
 ---
 

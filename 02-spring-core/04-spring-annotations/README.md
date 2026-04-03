@@ -633,7 +633,7 @@ private int timeout;
 
 ---
 
-## Common Interview Questions
+## Test Your Knowledge
 
 **Q: What's the difference between @Component, @Service, @Repository?**
 A: Semantically different layers. @Repository adds exception translation. All are @Component specializations.

@@ -10,7 +10,7 @@
 7. [Message-Based Communication](#message-based-communication)
 8. [Choosing Communication Style](#choosing-communication-style)
 9. [Best Practices](#best-practices)
-10. [Interview Questions](#interview-questions)
+10. [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -957,7 +957,7 @@ public class RestTemplateMetrics {
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is the difference between synchronous and asynchronous communication in microservices?
 

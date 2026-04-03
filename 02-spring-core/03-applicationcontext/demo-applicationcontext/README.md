@@ -261,7 +261,7 @@ public class ConfigLoader {
 
 5. ✅ **Use Environment for property access**
 
-## Common Interview Questions
+## Test Your Knowledge
 
 **Q: What's the difference between BeanFactory and ApplicationContext?**
 A: ApplicationContext extends BeanFactory and adds:

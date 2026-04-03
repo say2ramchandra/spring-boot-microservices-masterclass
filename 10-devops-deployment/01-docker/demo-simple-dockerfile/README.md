@@ -429,10 +429,10 @@ curl http://localhost:8083/api/hello
 
 ```bash
 # Run with memory limit
-docker run -d -p 8080:8080 --memory="256m" --name demo-limited simple-docker-demo:1.0
+docker run -d -p 8080:8080 --memory="256m" --name app-limited simple-docker-demo:1.0
 
 # Check actual usage
-docker stats demo-limited --no-stream
+docker stats app-limited --no-stream
 ```
 
 ---

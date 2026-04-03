@@ -94,7 +94,7 @@ By the end of this module, you will:
 ```bash
 cd 03-spring-boot-fundamentals
 cd 04-rest-api-development
-cd demo-complete-rest-api
+cd demo-rest-api
 mvn spring-boot:run
 ```
 
@@ -234,6 +234,27 @@ By the end of this module, you'll build a complete Task Management REST API:
 - H2 Database (in-memory)
 - Lombok
 - Validation API
+
+---
+
+## Test Your Knowledge
+
+### Q1: How does Spring Boot auto-configuration work?
+**A:** Uses @Conditional annotations to check classpath, beans, and properties. Configurations in META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports are loaded when conditions are met.
+
+### Q2: What is the order of property source precedence in Spring Boot?
+**A:** Command line args > application-{profile}.yml > application.yml > @PropertySource > Default properties. Profile-specific overrides base config.
+
+### Q3: What's the difference between @RestController and @Controller?
+**A:** @RestController = @Controller + @ResponseBody. Returns data directly (JSON/XML). @Controller returns view names for template rendering.
+
+### Q4: How does Spring Data JPA derive queries from method names?
+**A:** Parses method name: findByEmailAndStatus → SELECT * WHERE email = ? AND status = ?. Supports keywords: And, Or, Between, LessThan, Like, OrderBy, etc.
+
+### Q5: What's the purpose of @ControllerAdvice?
+**A:** Global exception handling across all controllers. Methods with @ExceptionHandler catch specific exceptions and return appropriate error responses.
+
+---
 
 ## 🔗 Next Steps
 

@@ -10,7 +10,7 @@
 7. [Refreshing Configuration](#refreshing-configuration)
 8. [Encryption and Security](#encryption-and-security)
 9. [Best Practices](#best-practices)
-10. [Interview Questions](#interview-questions)
+10. [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -916,7 +916,7 @@ spring:
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is Spring Cloud Config and why do we need it?
 

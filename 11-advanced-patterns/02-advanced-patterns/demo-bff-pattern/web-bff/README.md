@@ -714,4 +714,49 @@ curl -w "%{time_total}\n" -o /dev/null -s http://localhost:8083/api/products
 
 ---
 
+## 💡 Test Your Knowledge
+
+1. **What is the main goal of Web BFF?**
+   - A) Reduce data transfer
+   - B) Provide rich data optimized for desktop browsers
+   - C) Replace mobile APIs
+   - D) Handle authentication only
+
+2. **Why does Web BFF return nested objects?**
+   - A) To increase bandwidth usage
+   - B) To reduce frontend data manipulation complexity
+   - C) Security requirements
+   - D) Cache optimization
+
+3. **How much more data does Web BFF provide compared to Mobile BFF?**
+   - A) Same amount
+   - B) 2x more
+   - C) 3x more
+   - D) 10x more
+
+4. **What port does Web BFF run on?**
+   - A) 8100
+   - B) 8101
+   - C) 8102
+   - D) 8080
+
+5. **What type of images does Web BFF include that Mobile BFF excludes?**
+   - A) Thumbnails only
+   - B) Multiple image sizes for responsive design
+   - C) No images
+   - D) Animated GIFs only
+
+<details>
+<summary>📝 Answers</summary>
+
+1. **B** - Web BFF provides rich data for desktop browsers
+2. **B** - Nested objects reduce frontend data manipulation
+3. **C** - Web BFF provides 3x more data than Mobile BFF
+4. **B** - Web BFF runs on port 8101
+5. **B** - Web BFF includes multiple image sizes for responsive design
+
+</details>
+
+---
+
 **Web BFF provides 3x more data than Mobile BFF for richer desktop experiences!** 🖥️✨

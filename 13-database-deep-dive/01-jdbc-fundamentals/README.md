@@ -14,7 +14,7 @@
 - [Batch Processing](#batch-processing)
 - [Connection Pooling](#connection-pooling)
 - [Best Practices](#best-practices)
-- [Interview Questions](#interview-questions)
+- [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -647,7 +647,7 @@ stmt.setFetchSize(100);  // Fetch 100 rows at a time
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is the difference between Statement and PreparedStatement?
 
@@ -711,5 +711,5 @@ HikariCP configuration and performance comparison
 
 After mastering JDBC fundamentals:
 1. → [Advanced Hibernate](../02-hibernate-advanced/) - Caching, performance
-2. → [NoSQL with MongoDB](../03-nosql-mongodb/) - Document databases
-3. → [Redis Caching](../04-nosql-redis/) - In-memory data store
+2. → [NoSQL with MongoDB](../03-mongodb/) - Document databases
+3. → [Redis Caching](../04-redis/) - In-memory data store

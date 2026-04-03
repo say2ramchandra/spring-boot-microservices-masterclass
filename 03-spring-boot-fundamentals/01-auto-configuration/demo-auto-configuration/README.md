@@ -308,7 +308,7 @@ ConditionalBeansConfig#notificationService:
    - Use `@AutoConfigureAfter` and `@AutoConfigureBefore` for ordering
    - Example: Configure DataSource before JPA
 
-## Interview Questions
+## Test Your Knowledge
 
 **Q: What is the difference between @Configuration and @AutoConfiguration?**
 

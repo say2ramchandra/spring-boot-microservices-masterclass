@@ -527,4 +527,49 @@ curl http://localhost:8083/api/products
 
 ---
 
+## 💡 Test Your Knowledge
+
+1. **What is the main goal of Mobile BFF?**
+   - A) Provide more data than Web BFF
+   - B) Optimize for limited bandwidth and battery conservation
+   - C) Replace the shared service
+   - D) Handle authentication only
+
+2. **Why does Mobile BFF use thumbnail images instead of full images?**
+   - A) Mobile devices can't display large images
+   - B) Faster loading and reduced data transfer
+   - C) Security reasons
+   - D) Images are not supported on mobile
+
+3. **How much data transfer reduction does Mobile BFF achieve?**
+   - A) 25%
+   - B) 50%
+   - C) 67%
+   - D) 90%
+
+4. **What port does Mobile BFF run on?**
+   - A) 8100
+   - B) 8101
+   - C) 8102
+   - D) 8080
+
+5. **Which service must be running before Mobile BFF can start?**
+   - A) Web BFF
+   - B) Shared Service (Port 8100)
+   - C) Database server
+   - D) Kafka
+
+<details>
+<summary>📝 Answers</summary>
+
+1. **B** - Mobile BFF optimizes for bandwidth and battery
+2. **B** - Thumbnails enable faster loading and reduced data transfer
+3. **C** - Mobile BFF reduces data transfer by 67%
+4. **C** - Mobile BFF runs on port 8102
+5. **B** - Shared Service must be running on port 8100
+
+</details>
+
+---
+
 **Mobile BFF reduces data transfer by 67% and API calls by 50%!** 📱⚡

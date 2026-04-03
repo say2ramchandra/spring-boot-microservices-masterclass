@@ -186,9 +186,9 @@ Try modifying the code to:
 
 ## 📚 Related Topics
 
-- [Lambda Expressions](../01-lambda-basics/)
-- [Functional Interfaces](../03-functional-interfaces/)
-- [Optional API](../../03-optional-api/)
+- [Lambda Expressions](../README.md)
+- [Functional Interfaces](../../03-functional-interfaces/)
+- [Optional Handling](../../09-optional-handling/)
 
 ---
 

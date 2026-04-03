@@ -377,4 +377,49 @@ Factory of factories - create families of related objects.
 
 ---
 
+## 💡 Test Your Knowledge
+
+1. **What is the main purpose of the Factory Pattern?**
+   - A) To make code faster
+   - B) To create objects without exposing creation logic
+   - C) To reduce memory usage
+   - D) To enable multithreading
+
+2. **How does Spring Boot enhance the Factory Pattern?**
+   - A) Through XML configuration only
+   - B) Using automatic dependency injection for processor discovery
+   - C) By disabling factory creation
+   - D) Through manual object instantiation
+
+3. **What annotation marks a PaymentProcessor as a Spring bean?**
+   - A) @Bean
+   - B) @Autowired
+   - C) @Component or @Service
+   - D) @Factory
+
+4. **How does the factory know which processor to return?**
+   - A) Random selection
+   - B) By matching PaymentType with the processor's `getType()` method
+   - C) User manually specifies the class
+   - D) First registered wins
+
+5. **What happens if an unsupported PaymentType is requested?**
+   - A) Returns null silently
+   - B) Throws IllegalArgumentException
+   - C) Creates a default processor
+   - D) Crashes the application
+
+<details>
+<summary>📝 Answers</summary>
+
+1. **B** - Factory creates objects without exposing creation logic
+2. **B** - Spring auto-discovers and injects all PaymentProcessor implementations
+3. **C** - @Component or @Service marks classes as Spring beans
+4. **B** - Factory matches PaymentType with processor's `getType()` method
+5. **B** - Throws IllegalArgumentException for unsupported types
+
+</details>
+
+---
+
 **Happy Learning!** 🏭✨

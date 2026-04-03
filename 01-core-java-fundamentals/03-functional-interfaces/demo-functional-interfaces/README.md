@@ -210,7 +210,7 @@ Connection conn = connectionSupplier.get();
 5. ✅ Chain operations for clarity
 6. ✅ Avoid side effects in Functions and Predicates
 
-## Common Interview Questions
+## Test Your Knowledge
 
 **Q: What's the difference between Function and UnaryOperator?**
 A: UnaryOperator is Function where input and output types are the same.

@@ -518,7 +518,7 @@ This project uses concepts from:
 
 - [ARCHITECTURE.md](./ARCHITECTURE.md) - Detailed architecture
 - [SETUP.md](./SETUP.md) - Setup instructions
-- [API-DOCUMENTATION.md](./API-DOCUMENTATION.md) - API reference
+- [PROJECT-IMPLEMENTATION-GUIDE.md](./PROJECT-IMPLEMENTATION-GUIDE.md) - API reference and implementation details
 - Individual service READMEs in each service folder
 
 ---
@@ -637,6 +637,25 @@ After completing this capstone:
    - Add custom business logic
    - Experiment with different patterns
    - Share your project on GitHub
+
+---
+
+## Test Your Knowledge
+
+### Q1: How do microservices communicate in this e-commerce system?
+**A:** Synchronous: REST/Feign for queries. Asynchronous: RabbitMQ/Kafka for events (order placed, payment completed, inventory updated).
+
+### Q2: How is data consistency maintained across services?
+**A:** Saga pattern with compensating transactions. Event-driven eventual consistency. Each service owns its database.
+
+### Q3: What happens when a service is down?
+**A:** Circuit breaker opens after failure threshold. Fallback returns cached/default data. Retry with exponential backoff for transient failures.
+
+### Q4: How would you scale this system for Black Friday traffic?
+**A:** Horizontal pod autoscaling in Kubernetes, database read replicas, Redis caching, async processing via queues, CDN for static content.
+
+### Q5: How do you trace a request across all services?
+**A:** Distributed tracing with correlation IDs. Each service logs the trace ID. Tools like Zipkin/Jaeger visualize the request flow.
 
 ---
 

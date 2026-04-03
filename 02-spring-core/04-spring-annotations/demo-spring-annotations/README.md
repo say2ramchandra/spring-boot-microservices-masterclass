@@ -206,7 +206,7 @@ public class EmailService {
 }
 ```
 
-## Common Interview Questions
+## Test Your Knowledge
 
 **Q: What's the difference between @Component and @Bean?**
 A: @Component is class-level for auto-scanning. @Bean is method-level in @Configuration for programmatic bean creation.

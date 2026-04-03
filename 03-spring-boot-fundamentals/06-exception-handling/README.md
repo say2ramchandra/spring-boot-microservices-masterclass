@@ -11,8 +11,8 @@
 - [Error Response Structure](#error-response-structure)
 - [Common Exceptions](#common-exceptions)
 - [Best Practices](#best-practices)
-- [Demo Project](#demo-project)
-- [Interview Questions](#interview-questions)
+- [Hands-on Demo](#hands-on-demo)
+- [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -537,7 +537,7 @@ public class UserNotFoundException extends RuntimeException {
 
 ---
 
-## Demo Project
+## Hands-on Demo
 
 See [demo-exception-handling](demo-exception-handling/) for a complete example with:
 - Global exception handler
@@ -548,7 +548,7 @@ See [demo-exception-handling](demo-exception-handling/) for a complete example w
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is @ControllerAdvice and how does it work?
 

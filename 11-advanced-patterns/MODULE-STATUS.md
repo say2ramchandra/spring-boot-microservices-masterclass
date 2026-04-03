@@ -12,7 +12,7 @@
   - 12 Advanced Microservices Patterns
   - Code examples, diagrams, and best practices
 
-#### 2. Design Pattern Demos (4/4 Complete)
+#### 2. Design Pattern Demos (9/9 Complete)
 
 ##### ✅ Factory Pattern Demo (Port 8090)
 **Purpose:** Demonstrate object creation without exposing creation logic
@@ -44,9 +44,59 @@
 - **Status:** Fully runnable with 18 files
 - **Location:** `01-design-patterns/demo-strategy-pattern/`
 
-#### 3. Advanced Pattern Outlines
+##### ✅ Singleton Pattern Demo (Port 8094)
+**Purpose:** Ensure a class has only one instance
+- **Implementations:** 6 different singleton approaches
+  - Classic Singleton (lazy, synchronized)
+  - Lazy Holder (thread-safe, no sync overhead)
+  - Enum Singleton (Joshua Bloch recommended)
+  - Spring Singleton Scope (default bean scope)
+  - Application Config Holder
+  - Connection Pool Manager
+- **Location:** `01-design-patterns/demo-singleton-pattern/`
 
-##### 🔄 BFF Pattern Demo Outline
+##### ✅ Template Method Pattern Demo (Port 8095)
+**Purpose:** Define algorithm skeleton, let subclasses override steps
+- **Implementation 1:** Data Export (CSV, PDF, Excel)
+- **Implementation 2:** Order Processing (Standard, Express, International)
+- **Location:** `01-design-patterns/demo-template-method-pattern/`
+
+##### ✅ Adapter Pattern Demo (Port 8096)
+**Purpose:** Convert incompatible interfaces
+- **Implementation:** Payment gateway adapters
+- **Adapters:** PayPal, Stripe, Square (adapt legacy SDKs)
+- **Location:** `01-design-patterns/demo-adapter-pattern/`
+
+##### ✅ Facade Pattern Demo (Port 8097)
+**Purpose:** Simplified interface for complex subsystems
+- **Implementation:** Order processing facade
+- **Subsystems:** Inventory, Payment, Shipping, Notification
+- **Location:** `01-design-patterns/demo-facade-pattern/`
+
+##### ✅ Decorator Pattern Demo (Port 8098)
+**Purpose:** Add responsibilities dynamically
+- **Implementation 1:** Coffee shop (beverages + condiments)
+- **Implementation 2:** Data processing (encryption, compression, logging)
+- **Location:** `01-design-patterns/demo-decorator-pattern/`
+
+#### 3. Advanced Pattern Demos (2 Complete)
+
+##### ✅ Saga Pattern Demo (Port 8200)
+**Purpose:** Manage distributed transactions with compensating actions
+- **Implementation:** Order processing across services
+- **Approach:** Orchestration-based saga
+- **Steps:** Inventory → Payment → Shipping → Notification
+- **Features:** Compensating transactions, failure simulation
+- **Location:** `02-advanced-patterns/demo-saga-pattern/`
+
+##### ✅ CQRS Pattern Demo (Port 8201)
+**Purpose:** Separate read and write operations
+- **Write Model:** Normalized, business logic, optimistic locking
+- **Read Model:** Denormalized, pre-computed fields, indexed
+- **Features:** Separate handlers, model sync, dashboard queries
+- **Location:** `02-advanced-patterns/demo-cqrs-pattern/`
+
+#### 4. BFF Pattern Outline
 **Purpose:** Separate backends for different client types
 - **Services Planned:**
   - Shared Service (Port 8100) - Main backend
@@ -65,13 +115,13 @@
 |---------|----------|---------|-------------|
 | Factory | Creational | ✅ | ✅ Complete |
 | Builder | Creational | ✅ | ✅ Complete |
-| Singleton | Creational | ✅ | 📝 Doc only |
+| Singleton | Creational | ✅ | ✅ Complete (Port 8094) |
 | Strategy | Behavioral | ✅ | ✅ Complete |
 | Observer | Behavioral | ✅ | ✅ Complete |
-| Template Method | Behavioral | ✅ | 📝 Doc only |
-| Adapter | Structural | ✅ | 📝 Doc only |
-| Facade | Structural | ✅ | 📝 Doc only |
-| Decorator | Structural | ✅ | 📝 Doc only |
+| Template Method | Behavioral | ✅ | ✅ Complete (Port 8095) |
+| Adapter | Structural | ✅ | ✅ Complete (Port 8096) |
+| Facade | Structural | ✅ | ✅ Complete (Port 8097) |
+| Decorator | Structural | ✅ | ✅ Complete (Port 8098) |
 
 ### Advanced Microservices Patterns (Documentation)
 
@@ -83,8 +133,8 @@
 | Reactive (WebFlux) | Non-blocking I/O | ✅ | 📝 Doc only |
 | GraphQL | Flexible queries | ✅ | 📝 Doc only |
 | gRPC | Binary RPC | ✅ | 📝 Doc only |
-| Saga Pattern | Distributed transactions | ✅ | 📝 Doc only |
-| CQRS | Read/Write separation | ✅ | 📝 Doc only |
+| Saga Pattern | Distributed transactions | ✅ | ✅ Complete (Port 8200) |
+| CQRS | Read/Write separation | ✅ | ✅ Complete (Port 8201) |
 | Event Sourcing | Event-driven state | ✅ | 📝 Doc only |
 | Database per Service | Data isolation | ✅ | 📝 Doc only |
 | Shared Database | Simplicity | ✅ | 📝 Doc only |

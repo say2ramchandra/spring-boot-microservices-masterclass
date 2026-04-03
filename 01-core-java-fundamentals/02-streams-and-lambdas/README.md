@@ -540,12 +540,12 @@ Explore these hands-on demos:
 
 1. **[demo-lambda-basics](demo-lambda-basics/)** - Lambda syntax and usage
 2. **[demo-stream-operations](demo-stream-operations/)** - All stream operations
-3. **[demo-data-processing](demo-data-processing/)** - Real-world data processing
-4. **[demo-parallel-streams](demo-parallel-streams/)** - Parallel processing
+3. **[Data processing examples](demo-stream-operations/)** - Real-world data processing
+4. **[Parallel stream examples](demo-stream-operations/)** - Parallel processing
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: Difference between map() and flatMap()?
 **A:** `map()` transforms each element 1-to-1. `flatMap()` transforms each element to a stream and flattens the results.

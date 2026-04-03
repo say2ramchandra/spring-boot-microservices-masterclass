@@ -540,12 +540,12 @@ Explore these hands-on demos:
 1. **[demo-constructor-injection](demo-constructor-injection/)** - Constructor injection examples
 2. **[demo-setter-injection](demo-setter-injection/)** - Setter injection use cases
 3. **[demo-field-injection](demo-field-injection/)** - Field injection (anti-pattern)
-4. **[demo-qualifier-primary](demo-qualifier-primary/)** - Multiple bean resolution
-5. **[demo-real-world-ecommerce](demo-real-world-ecommerce/)** - Complete e-commerce service
+4. **[demo-qualifier-primary](demo-qualifier-primary/)** - Multiple bean resolution using @Primary and @Qualifier
+5. **[demo-complete-di-guide](demo-complete-di-guide/)** - End-to-end dependency injection practices
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is Dependency Injection?
 **A:** DI is a design pattern where objects receive their dependencies from external sources (Spring container) rather than creating them. It promotes loose coupling and testability.

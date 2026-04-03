@@ -15,7 +15,7 @@ Deep dive into Java Virtual Machine architecture, memory management, garbage col
 5. [JIT Compilation](#jit-compilation)
 6. [JVM Tuning](#jvm-tuning)
 7. [Monitoring and Profiling](#monitoring-and-profiling)
-8. [Interview Questions](#interview-questions)
+8. [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -882,7 +882,7 @@ java \
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Basic Level
 

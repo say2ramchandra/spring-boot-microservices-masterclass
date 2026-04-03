@@ -1097,7 +1097,7 @@ Track your progress:
 
 ---
 
-## 🎓 Interview Questions
+## Test Your Knowledge
 
 ### Basic
 1. What are the three pillars of observability?

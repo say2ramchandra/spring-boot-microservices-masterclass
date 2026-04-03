@@ -28,21 +28,26 @@ By the end of this module, you will:
 05-spring-cloud/
 ├── README.md
 ├── 01-service-discovery/
-│   ├── README.md
-│   ├── demo-eureka-server/           ← Service Registry
-│   └── demo-eureka-client/           ← Client registration
+│   └── README.md
 ├── 02-api-gateway/
 │   ├── README.md
-│   └── demo-cloud-gateway/           ← Gateway with routing
+│   └── demo-gateway/                 ← Gateway with routing
 ├── 03-config-server/
 │   ├── README.md
-│   └── demo-config-management/       ← Centralized config
+│   ├── demo-config-server/           ← Centralized config server
+│   └── demo-config-client/           ← Externalized config client
 ├── 04-circuit-breaker/
 │   ├── README.md
-│   └── demo-resilience4j/            ← Fault tolerance
+│   └── demo-circuit-breaker/         ← Fault tolerance
 └── 05-feign-client/
     ├── README.md
-    └── demo-feign-rest/              ← Declarative REST
+    └── demo-feign-order-service/     ← Declarative REST
+
+Additional integrated demos at module root:
+- demo-eureka-server/
+- demo-product-service/
+- demo-order-service/
+- demo-api-gateway/
 ```
 
 ---
@@ -493,11 +498,11 @@ cd 05-spring-cloud/01-service-discovery/demo-eureka-server
 mvn spring-boot:run
 
 # Terminal 2 - Config Server
-cd 05-spring-cloud/03-config-server/demo-config-management
+cd 05-spring-cloud/03-config-server/demo-config-server
 mvn spring-boot:run
 
 # Terminal 3 - API Gateway
-cd 05-spring-cloud/02-api-gateway/demo-cloud-gateway
+cd 05-spring-cloud/demo-api-gateway
 mvn spring-boot:run
 ```
 
@@ -525,7 +530,7 @@ http://localhost:8761
 
 ---
 
-## 🎓 Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is Service Discovery?
 
@@ -550,7 +555,7 @@ http://localhost:8761
 
 - Complete all demos in this module
 - Move to **[Module 06: Messaging](../06-messaging/)** for async communication
-- Learn **[Module 07: Observability](../07-observability/)** for monitoring
+- Learn **[Module 09: Observability](../09-observability/)** for monitoring
 
 ---
 

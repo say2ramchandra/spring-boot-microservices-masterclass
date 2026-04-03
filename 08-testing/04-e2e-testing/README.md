@@ -434,4 +434,17 @@ Total Tests: 100%
 
 ---
 
+## Test Your Knowledge
+
+### Q1: What's the difference between E2E tests and integration tests?
+**A:** Integration: Tests component interactions within one service. E2E: Tests entire user journey across all services, mimics real user behavior.
+
+### Q2: Why should E2E tests be at the top of the testing pyramid (fewest)?
+**A:** Slow to run, expensive to maintain, flaky (external dependencies). Use sparingly for critical business flows.
+
+### Q3: What is REST Assured used for?
+**A:** Java library for testing REST APIs. Provides fluent DSL for HTTP requests, response validation, JSON/XML parsing, and authentication.
+
+---
+
 _"E2E tests are expensive but invaluable for critical paths." - Test Pyramid Principle_

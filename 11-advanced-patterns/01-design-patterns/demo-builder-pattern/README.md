@@ -427,4 +427,49 @@ Product updated = original.toBuilder()
 
 ---
 
+## 💡 Test Your Knowledge
+
+1. **What problem does the Builder Pattern solve?**
+   - A) Runtime performance issues
+   - B) Telescoping constructor anti-pattern
+   - C) Memory leaks
+   - D) Thread safety
+
+2. **What is the difference between Lombok's @Builder and a custom Builder?**
+   - A) Lombok generates boilerplate automatically; custom allows validation logic
+   - B) They are identical
+   - C) Custom is always faster
+   - D) Lombok doesn't support inheritance
+
+3. **When should you use the Builder Pattern?**
+   - A) For classes with 2 fields
+   - B) When objects have many optional parameters
+   - C) Only for immutable objects
+   - D) Never in Spring Boot
+
+4. **What does `@Builder.Default` annotation do?**
+   - A) Makes a field required
+   - B) Sets a default value when not provided
+   - C) Validates the field
+   - D) Makes the field final
+
+5. **How does `toBuilder()` work?**
+   - A) Creates a completely new object
+   - B) Copies existing values to a new builder for modification
+   - C) Deletes the original object
+   - D) Validates builder configuration
+
+<details>
+<summary>📝 Answers</summary>
+
+1. **B** - Builder solves telescoping constructor (many constructor overloads)
+2. **A** - Lombok auto-generates; custom allows validation in `build()` method
+3. **B** - Use when objects have many optional parameters
+4. **B** - `@Builder.Default` sets default value if not specified
+5. **B** - `toBuilder()` copies existing values to new builder for modification
+
+</details>
+
+---
+
 **Happy Building!** 🏗️✨

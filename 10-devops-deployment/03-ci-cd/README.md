@@ -464,7 +464,7 @@ jobs:
 - Docker build and push
 - Kubernetes deployment
 
-### 2. GitOps with ArgoCD (`demo-gitops/`)
+### 2. GitOps with ArgoCD (`demo-gitops-argocd/`)
 - Git-based deployments
 - Automated sync
 - Self-healing applications
@@ -489,6 +489,19 @@ jobs:
 - [Jenkins Documentation](https://www.jenkins.io/doc/)
 - [Argo CD Documentation](https://argo-cd.readthedocs.io/)
 - [GitOps Principles](https://www.gitops.tech/)
+
+---
+
+## Test Your Knowledge
+
+### Q1: What's the difference between CI and CD?
+**A:** CI (Continuous Integration): Automated build and test on every commit. CD (Continuous Delivery): Automated deployment to staging. CD (Continuous Deployment): Automated deployment to production.
+
+### Q2: What is GitOps?
+**A:** Using Git as single source of truth for declarative infrastructure. Changes via pull requests, automated sync between Git and cluster. Tools: ArgoCD, Flux.
+
+### Q3: What stages should a typical CI/CD pipeline have?
+**A:** Build → Unit Test → Integration Test → Security Scan → Build Docker Image → Push to Registry → Deploy to Staging → Deploy to Production.
 
 ---
 

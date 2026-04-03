@@ -754,4 +754,23 @@ class SecurityTests {
 
 ---
 
+## Test Your Knowledge
+
+### Q1: What is the difference between authentication and authorization?
+**A:** Authentication verifies identity (who are you?). Authorization verifies permissions (what can you do?).
+
+### Q2: How does JWT authentication work?
+**A:** User logs in → Server generates signed JWT with claims → Client stores token → Client sends token in Authorization header → Server validates signature and extracts claims.
+
+### Q3: What are the main components of Spring Security's filter chain?
+**A:** SecurityContextPersistenceFilter, UsernamePasswordAuthenticationFilter, BasicAuthenticationFilter, ExceptionTranslationFilter, FilterSecurityInterceptor.
+
+### Q4: What is OAuth2 and when would you use it?
+**A:** Authorization framework for delegated access. Use when third-party apps need limited access to user resources without sharing credentials (e.g., "Login with Google").
+
+### Q5: How do you secure microservices communication?
+**A:** API Gateway authentication, service-to-service mTLS, JWT propagation, OAuth2 with client credentials, network policies in Kubernetes.
+
+---
+
 _Secure your microservices! 🔒_

@@ -53,7 +53,7 @@ Learn comprehensive testing strategies for microservices including unit tests, i
 │   └── demo-testcontainers/
 ├── 03-contract-testing/
 │   ├── README.md
-│   └── demo-spring-cloud-contract/
+│   └── demo-contract-testing/
 ├── 04-e2e-testing/
 │   ├── README.md
 │   └── demo-rest-assured/
@@ -694,6 +694,25 @@ void createProduct_shouldApplyDefaultDiscount() {
     assertThat(result.getDiscount()).isEqualTo(new BigDecimal("0.05"));
 }
 ```
+
+---
+
+## Test Your Knowledge
+
+### Q1: What's the difference between unit tests and integration tests?
+**A:** Unit tests: Test single component in isolation with mocks. Fast, no external dependencies. Integration tests: Test multiple components working together, may use real databases/services.
+
+### Q2: What is the purpose of @MockBean vs @Mock?
+**A:** @Mock (Mockito): Creates mock in plain unit tests. @MockBean (Spring): Creates mock and adds to Spring context, replacing real bean.
+
+### Q3: What are Testcontainers and when would you use them?
+**A:** Library providing lightweight, throwaway Docker containers for integration tests. Use for testing with real databases, message brokers, etc.
+
+### Q4: Explain the testing pyramid.
+**A:** Base: Many fast unit tests. Middle: Fewer integration tests. Top: Few E2E/UI tests. More tests at bottom = faster feedback, lower maintenance.
+
+### Q5: What is contract testing and why is it important for microservices?
+**A:** Verifies API contracts between consumer and provider services. Prevents breaking changes. Tools: Pact, Spring Cloud Contract.
 
 ---
 

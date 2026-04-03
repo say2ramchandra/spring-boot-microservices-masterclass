@@ -12,7 +12,7 @@ Spring Security is the de-facto standard for securing Spring-based applications.
 5. [Password Encoding](#password-encoding)
 6. [Security Configuration](#security-configuration)
 7. [Best Practices](#best-practices)
-8. [Interview Questions](#interview-questions)
+8. [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -698,7 +698,7 @@ public class SignupRequest {
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: Explain the difference between authentication and authorization in Spring Security.
 
@@ -836,7 +836,7 @@ BCrypt Hash 2: $2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.
 ## Next Steps
 
 - **[Section 02 - JWT Authentication](../02-jwt-authentication/)** - Stateless authentication with JWT
-- **[Section 03 - OAuth2](../03-oauth2/)** - OAuth2 and OpenID Connect integration
+- **[OAuth2 Demo](../demo-oauth2/)** - OAuth2 and OpenID Connect integration
 
 ---
 

@@ -165,6 +165,25 @@ mvn spring-boot:run
 
 ---
 
+## Test Your Knowledge
+
+### Q1: What is the N+1 query problem and how do you solve it?
+**A:** Fetching parent entity triggers N additional queries for children. Solutions: JOIN FETCH, @EntityGraph, @BatchSize, or use projections.
+
+### Q2: What's the difference between first-level and second-level cache in Hibernate?
+**A:** First-level: Session-scoped, automatic, per transaction. Second-level: SessionFactory-scoped, shared across sessions, needs configuration (EhCache, Redis).
+
+### Q3: When would you use MongoDB over PostgreSQL?
+**A:** Flexible schema, document-oriented data, horizontal scaling, high write throughput, geospatial queries. Avoid for complex joins/transactions.
+
+### Q4: What are Redis data structures and common use cases?
+**A:** Strings (cache), Lists (queues), Sets (unique items), Sorted Sets (leaderboards), Hashes (objects), Streams (event logs).
+
+### Q5: How do you implement database per microservice pattern?
+**A:** Each service owns its database. No direct DB access between services. Communicate via APIs/events. Eventual consistency with Saga pattern.
+
+---
+
 ## 📚 Resources
 
 ### Official Documentation

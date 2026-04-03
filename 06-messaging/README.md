@@ -27,21 +27,12 @@ By the end of this module, you will:
 ```
 06-messaging/
 ├── README.md
-├── 01-rabbitmq-basics/
-│   ├── README.md
-│   ├── demo-rabbitmq-producer/       ← Message producer
-│   └── demo-rabbitmq-consumer/       ← Message consumer
-├── 02-kafka-basics/
-│   ├── README.md
-│   ├── demo-kafka-producer/          ← Event producer
-│   └── demo-kafka-consumer/          ← Event consumer
-├── 03-event-driven/
-│   ├── README.md
-│   └── demo-order-events/            ← Order processing with events
-└── 04-saga-pattern/
-    ├── README.md
-    └── demo-distributed-transaction/ ← Saga orchestration
+├── demo-rabbitmq/                    ← RabbitMQ messaging patterns
+└── demo-kafka/                       ← Kafka event streaming patterns
 ```
+
+Note: Advanced order-event and saga orchestration demos are covered in
+Module 11 (see demo-saga-pattern and demo-cqrs-pattern).
 
 ---
 
@@ -733,11 +724,30 @@ Features:
 
 ---
 
+## Test Your Knowledge
+
+### Q1: What's the difference between RabbitMQ and Kafka?
+**A:** RabbitMQ is a message broker (smart broker, dumb consumers, messages deleted after consumption). Kafka is an event streaming platform (dumb broker, smart consumers, messages retained).
+
+### Q2: Explain RabbitMQ exchange types.
+**A:** Direct (exact routing key match), Fanout (broadcast to all queues), Topic (pattern matching with * and #), Headers (match on message headers).
+
+### Q3: What is a Kafka consumer group?
+**A:** Consumers with same group.id share partitions for parallel processing. Each partition is consumed by only one consumer in the group.
+
+### Q4: How does the Saga pattern handle distributed transactions?
+**A:** Choreography: Services publish events, others react. Orchestration: Central coordinator directs services. Both use compensating transactions for rollback.
+
+### Q5: What is event sourcing?
+**A:** Store state changes as a sequence of events instead of current state. Enables audit trail, replay, and temporal queries. Often combined with CQRS.
+
+---
+
 ## 📚 Next Steps
 
 - Complete messaging demos
 - Move to **[Module 07: Security](../07-security/)** for securing microservices
-- Learn **[Module 08: Observability](../08-observability/)** for monitoring
+- Learn **[Module 09: Observability](../09-observability/)** for monitoring
 
 ---
 

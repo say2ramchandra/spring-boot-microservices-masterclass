@@ -9,7 +9,7 @@
 6. [Service Discovery Patterns](#service-discovery-patterns)
 7. [High Availability](#high-availability)
 8. [Best Practices](#best-practices)
-9. [Interview Questions](#interview-questions)
+9. [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -636,7 +636,7 @@ public void onShutdown() {
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is Service Discovery and why do we need it?
 

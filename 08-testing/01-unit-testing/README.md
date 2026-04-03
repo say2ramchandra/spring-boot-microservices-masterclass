@@ -341,4 +341,17 @@ class ProductServiceTest {
 
 ---
 
+## Test Your Knowledge
+
+### Q1: What is the Arrange-Act-Assert pattern?
+**A:** Arrange: Set up test data and mocks. Act: Call the method under test. Assert: Verify expected outcomes.
+
+### Q2: What's the difference between @Mock and @Spy?
+**A:** @Mock creates complete fake with no real behavior. @Spy wraps real object, calls real methods unless stubbed.
+
+### Q3: When should you use verify() vs assertions?
+**A:** Use assertions for return values (what was returned). Use verify() for interactions (was method called? how many times? with what args?).
+
+---
+
 _Write tests. Not too many. Mostly integration. But definitely unit tests! ✅_

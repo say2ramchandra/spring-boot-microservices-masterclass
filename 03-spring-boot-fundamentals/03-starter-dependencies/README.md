@@ -12,8 +12,8 @@
 - [Creating Custom Starters](#creating-custom-starters)
 - [Dependency Management](#dependency-management)
 - [Best Practices](#best-practices)
-- [Demo Project](#demo-project)
-- [Interview Questions](#interview-questions)
+- [Hands-on Demo](#hands-on-demo)
+- [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -616,7 +616,7 @@ Regularly update Spring Boot version for security patches:
 
 ---
 
-## Demo Project
+## Hands-on Demo
 
 See [demo-starter-usage](demo-starter-usage/) for a complete example demonstrating:
 
@@ -627,7 +627,7 @@ See [demo-starter-usage](demo-starter-usage/) for a complete example demonstrati
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is a Spring Boot Starter?
 

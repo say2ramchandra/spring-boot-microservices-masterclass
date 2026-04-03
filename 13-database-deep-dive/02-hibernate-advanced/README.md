@@ -15,7 +15,7 @@
 - [Lazy vs Eager Loading](#lazy-vs-eager-loading)
 - [Dirty Checking](#dirty-checking)
 - [Best Practices](#best-practices)
-- [Interview Questions](#interview-questions)
+- [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -962,7 +962,7 @@ logging.level.org.hibernate.stat: DEBUG
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is the difference between L1 and L2 cache?
 
@@ -1013,6 +1013,6 @@ N+1 problem, batch processing, and optimization techniques
 ## Next Steps
 
 After mastering Hibernate:
-1. → [NoSQL with MongoDB](../03-nosql-mongodb/) - Document databases
-2. → [Redis Caching](../04-nosql-redis/) - Application-level caching
-3. → [Database Patterns](../05-database-patterns/) - Polyglot persistence
+1. → [NoSQL with MongoDB](../03-mongodb/) - Document databases
+2. → [Redis Caching](../04-redis/) - Application-level caching
+3. → [Database Patterns](../README.md) - Polyglot persistence

@@ -324,8 +324,8 @@ List<String> immutable = List.of("A", "B", "C");
 
 ## 🔗 Related Concepts
 
-- **[LinkedList](../demo-linkedlist/)** - When to use LinkedList instead
-- **[Performance Comparison](../demo-collection-comparison/)** - Benchmark all collections
+- **[LinkedList](../README.md)** - When to use LinkedList instead
+- **[Performance Comparison](../README.md)** - Benchmark all collections
 - **[Streams and Lambdas](../../02-streams-and-lambdas/)** - Process lists functionally
 
 ## 📚 Additional Resources

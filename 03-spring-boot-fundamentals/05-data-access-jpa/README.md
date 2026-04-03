@@ -12,8 +12,8 @@
 - [Custom Queries](#custom-queries)
 - [Transactions](#transactions)
 - [Best Practices](#best-practices)
-- [Demo Project](#demo-project)
-- [Interview Questions](#interview-questions)
+- [Hands-on Demo](#hands-on-demo)
+- [Test Your Knowledge](#test-your-knowledge)
 
 ---
 
@@ -507,7 +507,7 @@ List<Book> complexQuery();
 
 ---
 
-## Demo Project
+## Hands-on Demo
 
 See [demo-data-jpa](demo-data-jpa/) for a complete example with:
 - Entity relationships (OneToMany, ManyToOne, ManyToMany)
@@ -518,7 +518,7 @@ See [demo-data-jpa](demo-data-jpa/) for a complete example with:
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What's the difference between JPA and Hibernate?
 

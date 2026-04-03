@@ -253,7 +253,7 @@ These concepts are used extensively in Spring:
 
 See Module 02 for Spring Boot integration examples.
 
-## Common Interview Questions
+## Test Your Knowledge
 
 **Q: What's the difference between synchronized and volatile?**
 A: `synchronized` ensures mutual exclusion and visibility. `volatile` only ensures visibility.
@@ -275,7 +275,7 @@ A: 1) Lock ordering, 2) Lock timeout, 3) Deadlock detection
 1. Run the demo and study each part
 2. Modify examples to experiment
 3. Try creating your own concurrent programs
-4. Move to [Module 02: Spring Boot Fundamentals](../../02-spring-boot-fundamentals/)
+4. Move to [Module 03: Spring Boot Fundamentals](../../../03-spring-boot-fundamentals/)
 
 ---
 

@@ -609,13 +609,13 @@ externalName: my.database.example.com
 - ConfigMaps and Secrets
 - Health checks
 
-### 2. Service Discovery (`demo-service-discovery/`)
+### 2. Service Discovery (covered in `demo-basic-deployment/`)
 - Multiple microservices
 - Inter-service communication
 - DNS-based discovery
 - Load balancing
 
-### 3. ConfigMaps & Secrets (`demo-configmaps-secrets/`)
+### 3. ConfigMaps & Secrets (covered in `demo-basic-deployment/`)
 - External configuration
 - Database credentials
 - Environment-specific configs
@@ -785,6 +785,19 @@ After mastering Kubernetes basics:
 - [kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 - [Spring Boot on Kubernetes](https://spring.io/guides/gs/spring-boot-kubernetes/)
 - [Kubernetes Patterns](https://k8spatterns.io/)
+
+---
+
+## Test Your Knowledge
+
+### Q1: What's the difference between a Pod and a Deployment?
+**A:** Pod: Smallest deployable unit, one or more containers. Deployment: Manages Pods, handles scaling, rolling updates, and rollbacks.
+
+### Q2: How does a Kubernetes Service work?
+**A:** Provides stable network endpoint for Pods. Load balances traffic. Types: ClusterIP (internal), NodePort (external via node), LoadBalancer (external via cloud).
+
+### Q3: What is a ConfigMap vs Secret?
+**A:** ConfigMap: Non-sensitive configuration data. Secret: Sensitive data (passwords, tokens) - base64 encoded, can be encrypted at rest.
 
 ---
 

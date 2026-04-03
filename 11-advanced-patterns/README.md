@@ -34,22 +34,17 @@ By the end of this module, you will be able to:
 │   ├── demo-factory-pattern/                   # Factory pattern
 │   ├── demo-builder-pattern/                   # Builder pattern
 │   ├── demo-strategy-pattern/                  # Strategy pattern
-│   └── demo-observer-pattern/                  # Observer pattern
-├── 02-bff-pattern/
-│   ├── README.md                               # BFF pattern guide
-│   └── demo-mobile-web-bff/                    # Mobile + Web BFF demo
-├── 03-reactive-microservices/
-│   ├── README.md                               # Reactive programming guide
-│   └── demo-webflux/                           # Spring WebFlux demo
-├── 04-api-versioning/
-│   ├── README.md                               # Versioning strategies
-│   └── demo-version-strategies/                # Versioning demo
-├── 05-graphql/
-│   ├── README.md                               # GraphQL guide
-│   └── demo-graphql-api/                       # GraphQL demo
-└── 06-grpc/
-    ├── README.md                               # gRPC guide
-    └── demo-grpc-service/                      # gRPC demo
+│   ├── demo-observer-pattern/                  # Observer pattern
+│   ├── demo-singleton-pattern/                 # Singleton pattern
+│   ├── demo-template-method-pattern/           # Template method pattern
+│   ├── demo-adapter-pattern/                   # Adapter pattern
+│   ├── demo-facade-pattern/                    # Facade pattern
+│   └── demo-decorator-pattern/                 # Decorator pattern
+└── 02-advanced-patterns/
+    ├── README.md                               # Advanced patterns guide
+    ├── demo-bff-pattern/                       # BFF pattern demo
+    ├── demo-saga-pattern/                      # Saga orchestration demo
+    └── demo-cqrs-pattern/                      # CQRS pattern demo
 ```
 
 ---
@@ -2706,10 +2701,25 @@ This module covered:
 
 ---
 
-## 🎯 Next Steps
+## Test Your Knowledge
 
-1. **Practice patterns** - Implement in small projects
-2. **Read documentation** - Spring, GraphQL, gRPC docs
+### Q1: When would you use the Strategy pattern?
+**A:** When you need to switch between different algorithms/behaviors at runtime. Example: Payment processing with multiple payment methods (credit card, PayPal, bank transfer).
+
+### Q2: What is the BFF (Backend for Frontend) pattern?
+**A:** Separate backend services for each frontend type (web, mobile, IoT). Each BFF aggregates/transforms data specific to its client's needs.
+
+### Q3: Explain the Strangler Fig pattern for legacy migration.
+**A:** Gradually replace legacy system by routing new features to new microservices while keeping old system running. Eventually "strangle" the monolith.
+
+### Q4: What's the difference between REST and gRPC?
+**A:** REST: HTTP/1.1, JSON, text-based, human-readable. gRPC: HTTP/2, Protocol Buffers, binary, faster, bidirectional streaming, code generation.
+
+### Q5: When should you use CQRS?
+**A:** Complex domains where read/write requirements differ significantly. Separate read models (optimized for queries) from write models (optimized for commands).
+
+---
+
 3. **Build demos** - Create sample services
 4. **Move to Module 12** - Apply patterns in capstone project
 

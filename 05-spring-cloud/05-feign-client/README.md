@@ -10,7 +10,7 @@
 7. [Performance and Timeouts](#performance-and-timeouts)
 8. [Best Practices](#best-practices)
 9. [Production Enhancements](#production-enhancements)
-10. [Interview Questions](#interview-questions)
+10. [Test Your Knowledge](#test-your-knowledge)
 11. [Working Demo](#working-demo)
 
 ---
@@ -1370,7 +1370,7 @@ groups:
 
 ---
 
-## Interview Questions
+## Test Your Knowledge
 
 ### Q1: What is OpenFeign and why use it?
 

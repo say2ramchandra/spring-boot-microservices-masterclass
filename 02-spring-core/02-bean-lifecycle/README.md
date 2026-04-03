@@ -591,4 +591,17 @@ public class PaymentGatewayClient {
 
 ---
 
+## Test Your Knowledge
+
+### Q1: What is the complete bean lifecycle order?
+**A:** Instantiation → Populate Properties → BeanNameAware → BeanFactoryAware → ApplicationContextAware → @PostConstruct → InitializingBean → init-method → Ready → @PreDestroy → DisposableBean → destroy-method.
+
+### Q2: When would you use a prototype-scoped bean?
+**A:** When each injection point needs a new instance. Example: Stateful beans, request-specific objects, non-thread-safe components.
+
+### Q3: Why does @PreDestroy not work for prototype beans?
+**A:** Spring doesn't manage prototype bean's full lifecycle. After creation, Spring doesn't track it. You must manually clean up prototype beans.
+
+---
+
 _Master the lifecycle, master Spring! 🌱_

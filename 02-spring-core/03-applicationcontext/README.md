@@ -672,7 +672,7 @@ public class AnotherComponent {
 
 ---
 
-## Common Interview Questions
+## Test Your Knowledge
 
 **Q: What is the difference between BeanFactory and ApplicationContext?**
 A: ApplicationContext extends BeanFactory and adds enterprise features like event publishing, i18n, AOP, and eager initialization.

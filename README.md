@@ -166,40 +166,41 @@ mvn exec:java
 - [ ] Inter-Service Communication (Feign, WebClient)
 - [ ] Fault Tolerance (Resilience4j)
 
-### Module 05: Messaging & Events
+### Module 05: Spring Cloud
+- [ ] Service Discovery (Eureka)
+- [ ] API Gateway
+- [ ] Config Server
+- [ ] Circuit Breaker
+- [ ] Feign Client
+
+### Module 06: Messaging & Events
 - [ ] Messaging Fundamentals
 - [ ] Apache Kafka
 - [ ] RabbitMQ
 - [ ] Event-Driven Architecture
 
-### Module 06: Security
+### Module 07: Security
 - [ ] Spring Security Basics
 - [ ] JWT Authentication
 - [ ] OAuth2
 - [ ] API Security Best Practices
-
-### Module 07: Observability
-- [ ] Logging (SLF4J, Logback)
-- [ ] Monitoring & Metrics (Actuator, Prometheus)
-- [ ] Distributed Tracing (Zipkin)
 
 ### Module 08: Testing
 - [ ] Unit Testing (JUnit 5, Mockito)
 - [ ] Integration Testing (TestContainers)
 - [ ] Contract Testing (Spring Cloud Contract)
 
-### Module 09: Containerization & Deployment
+### Module 09: Observability
+- [ ] Logging (SLF4J, Logback)
+- [ ] Monitoring & Metrics (Actuator, Prometheus)
+- [ ] Distributed Tracing (Zipkin)
+
+### Module 10: DevOps & Deployment
 - [ ] Docker Basics & Best Practices
 - [ ] Kubernetes Fundamentals
 - [ ] CI/CD Pipelines
 
-### Module 10: Database Patterns
-- [ ] Database per Service
-- [ ] Saga Pattern
-- [ ] CQRS
-- [ ] Event Sourcing
-
-### Module 11: Advanced Topics
+### Module 11: Advanced Patterns & Best Practices
 - [ ] Reactive Programming (WebFlux)
 - [ ] GraphQL
 - [ ] gRPC
@@ -213,6 +214,12 @@ mvn exec:java
 - [ ] Dockerize Services
 - [ ] Deploy to Kubernetes
 - [ ] Setup CI/CD
+
+### Module 13: Database Deep Dive
+- [ ] JDBC Fundamentals
+- [ ] Hibernate Advanced
+- [ ] MongoDB
+- [ ] Redis
 
 ## 🔧 Tools & Technologies
 

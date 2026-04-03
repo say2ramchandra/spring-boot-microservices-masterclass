@@ -418,9 +418,9 @@ Verify H2 configuration in `application.properties`.
 
 ## 📚 Related Topics
 
-- [Spring Data JPA](../../02-data-jpa/)
-- [Bean Validation](../../03-validation/)
-- [Exception Handling](../../04-exception-handling/)
+- [Spring Data JPA](../../05-data-access-jpa/)
+- [Bean Validation](../../04-rest-api-development/)
+- [Exception Handling](../../06-exception-handling/)
 
 ---
 
