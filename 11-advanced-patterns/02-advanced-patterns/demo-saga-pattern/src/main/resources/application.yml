@@ -1,0 +1,10 @@
+server:
+  port: 8200
+
+spring:
+  application:
+    name: saga-pattern-demo
+
+logging:
+  level:
+    com.masterclass.patterns.saga: DEBUG

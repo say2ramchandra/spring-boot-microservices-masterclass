@@ -1,0 +1,33 @@
+# Maven build artifacts
+target/
+!target/*.jar
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation (optional - include if you want docs in image)
+*.md
+docs/
+
+# Environment files
+.env
+.env.local
+
+# Test files (optional)
+src/test/

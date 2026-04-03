@@ -17,6 +17,9 @@ Learn comprehensive testing strategies for microservices including unit tests, i
 - ✅ Achieve high test coverage
 - ✅ Apply test-driven development (TDD)
 - ✅ Test asynchronous and event-driven systems
+- ✅ Automate UI testing with Selenium WebDriver
+- ✅ Write BDD tests with Cucumber and Gherkin
+- ✅ Use TestNG for parallel and data-driven testing
 
 ---
 
@@ -51,9 +54,14 @@ Learn comprehensive testing strategies for microservices including unit tests, i
 ├── 03-contract-testing/
 │   ├── README.md
 │   └── demo-spring-cloud-contract/
-└── 04-e2e-testing/
-    ├── README.md
-    └── demo-rest-assured/
+├── 04-e2e-testing/
+│   ├── README.md
+│   └── demo-rest-assured/
+└── 05-automation-testing/          ✅ NEW
+    ├── README.md                   # Selenium, Cucumber, TestNG guide
+    ├── demo-selenium-basics/       # WebDriver, Page Object Model
+    ├── demo-cucumber-bdd/          # BDD with Gherkin
+    └── demo-testng-framework/      # Parallel, Data Providers, Groups
 ```
 
 ---

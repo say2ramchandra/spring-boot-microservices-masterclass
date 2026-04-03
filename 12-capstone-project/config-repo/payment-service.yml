@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: payment-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/payment_db
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: payment-service-group
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+server:
+  port: 8085
+
+# Payment Gateway Configuration
+app:
+  payment:
+    gateway:
+      stripe:
+        api-key: ${STRIPE_API_KEY:sk_test_dummy_key}
+        webhook-secret: ${STRIPE_WEBHOOK_SECRET:whsec_dummy}
+      timeout-seconds: 30

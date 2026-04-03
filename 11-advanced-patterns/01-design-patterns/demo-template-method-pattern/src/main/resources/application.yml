@@ -1,0 +1,10 @@
+server:
+  port: 8095
+
+spring:
+  application:
+    name: template-method-pattern-demo
+
+logging:
+  level:
+    com.masterclass.patterns.template: DEBUG

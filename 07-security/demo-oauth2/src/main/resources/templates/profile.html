@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - OAuth2 Demo</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%); min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .card { background: white; border-radius: 10px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #333; margin-bottom: 1rem; }
+        h2 { color: #555; margin-bottom: 1rem; }
+        p { color: #666; margin-bottom: 1rem; }
+        .nav { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .nav a { padding: 0.75rem 1.5rem; background: #00b4db; color: white; text-decoration: none; border-radius: 5px; }
+        .nav a:hover { background: #0083b0; }
+        .nav a.danger { background: #dc3545; }
+        .profile-section { margin-bottom: 1.5rem; }
+        .profile-grid { display: grid; gap: 0.75rem; }
+        .profile-row { display: grid; grid-template-columns: 150px 1fr; padding: 0.75rem; background: #f8f9fa; border-radius: 5px; }
+        .profile-row strong { color: #555; }
+        .profile-row span { color: #333; }
+        .provider-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500; }
+        .provider-google { background: #e8f0fe; color: #4285f4; }
+        .provider-github { background: #f6f8fa; color: #24292e; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="nav">
+                <a th:href="@{/home}">Home</a>
+                <a th:href="@{/dashboard}">Dashboard</a>
+                <a th:href="@{/profile}">Profile</a>
+                <a th:href="@{/logout}" class="danger">Logout</a>
+            </div>
+
+            <h1>👤 User Profile</h1>
+            <p>Your account information stored in the database.</p>
+        </div>
+
+        <div class="card" th:if="${user}">
+            <h2>📋 Database Record</h2>
+            <div class="profile-grid">
+                <div class="profile-row">
+                    <strong>ID:</strong>
+                    <span th:text="${user.id}">1</span>
+                </div>
+                <div class="profile-row">
+                    <strong>Name:</strong>
+                    <span th:text="${user.name}">User Name</span>
+                </div>
+                <div class="profile-row">
+                    <strong>Email:</strong>
+                    <span th:text="${user.email}">email@example.com</span>
+                </div>
+                <div class="profile-row">
+                    <strong>Provider:</strong>
+                    <span>
+                        <span th:class="${'provider-badge provider-' + user.provider.toString().toLowerCase()}" 
+                              th:text="${user.provider}">GOOGLE</span>
+                    </span>
+                </div>
+                <div class="profile-row">
+                    <strong>Provider ID:</strong>
+                    <span th:text="${user.providerId}">12345</span>
+                </div>
+                <div class="profile-row">
+                    <strong>Account Status:</strong>
+                    <span th:text="${user.enabled} ? '✅ Active' : '❌ Disabled'">Active</span>
+                </div>
+                <div class="profile-row">
+                    <strong>Created At:</strong>
+                    <span th:text="${user.createdAt}">2024-01-01</span>
+                </div>
+                <div class="profile-row">
+                    <strong>Last Login:</strong>
+                    <span th:text="${user.lastLoginAt}">2024-01-01</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" th:unless="${user}">
+            <h2>⚠️ No User Record</h2>
+            <p>User record not found in database.</p>
+        </div>
+    </div>
+</body>
+</html>

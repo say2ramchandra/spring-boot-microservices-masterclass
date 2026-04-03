@@ -150,9 +150,9 @@ public class ArrayListDemo {
         System.out.println("First language: " + first);
         System.out.println("Last language: " + last);
 
-        // Get first and last (alternative)
-        System.out.println("First: " + languages.getFirst());  // Java 21+
-        System.out.println("Last: " + languages.getLast());    // Java 21+
+        // Get first and last (alternative - Java 17 compatible)
+        System.out.println("First: " + languages.get(0));
+        System.out.println("Last: " + languages.get(languages.size() - 1));
 
         // Check if list contains element
         boolean hasJava = languages.contains("Java");

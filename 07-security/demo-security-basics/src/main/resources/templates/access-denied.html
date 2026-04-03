@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Denied - Security Basics Demo</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #6c757d 0%, #495057 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .container { max-width: 500px; padding: 2rem; text-align: center; }
+        .card { background: white; border-radius: 10px; padding: 3rem; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        .icon { font-size: 4rem; margin-bottom: 1rem; }
+        h1 { color: #dc3545; margin-bottom: 1rem; }
+        p { color: #666; line-height: 1.6; margin-bottom: 1.5rem; }
+        .btn { display: inline-block; padding: 0.75rem 1.5rem; background: #667eea; color: white; text-decoration: none; border-radius: 5px; margin: 0.5rem; }
+        .btn:hover { background: #5a6fd6; }
+        .btn.secondary { background: #6c757d; }
+        .btn.secondary:hover { background: #5a6268; }
+        .user-info { background: #f8f9fa; padding: 1rem; border-radius: 5px; margin-top: 1.5rem; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="icon">🚫</div>
+            <h1>Access Denied</h1>
+            <p>
+                Sorry, you don't have permission to access this resource.
+                <br>
+                This page requires higher privileges than your current role allows.
+            </p>
+            
+            <div>
+                <a th:href="@{/dashboard}" class="btn">Go to Dashboard</a>
+                <a th:href="@{/home}" class="btn secondary">Go to Home</a>
+            </div>
+
+            <div class="user-info" sec:authorize="isAuthenticated()">
+                <strong>Logged in as:</strong> <span sec:authentication="name">User</span><br>
+                <strong>Your Roles:</strong> <span sec:authentication="authorities">Roles</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

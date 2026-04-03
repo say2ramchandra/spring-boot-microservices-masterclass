@@ -11,13 +11,14 @@ Master Java concurrency, multithreading, thread safety, and asynchronous program
 1. [Thread Basics](#thread-basics)
 2. [Thread Lifecycle](#thread-lifecycle)
 3. [Synchronization](#synchronization)
-4. [Locks and Conditions](#locks-and-conditions)
-5. [Thread Pools (ExecutorService)](#thread-pools)
-6. [Concurrent Collections](#concurrent-collections)
-7. [CompletableFuture](#completablefuture)
-8. [Fork/Join Framework](#forkjoin-framework)
-9. [Best Practices](#best-practices)
-10. [Spring Boot Integration](#spring-boot-integration)
+4. [Java Memory Model (JMM)](#java-memory-model-jmm)
+5. [Locks and Conditions](#locks-and-conditions)
+6. [Thread Pools (ExecutorService)](#thread-pools)
+7. [Concurrent Collections](#concurrent-collections)
+8. [CompletableFuture](#completablefuture)
+9. [Fork/Join Framework](#forkjoin-framework)
+10. [Best Practices](#best-practices)
+11. [Spring Boot Integration](#spring-boot-integration)
 
 ---
 
@@ -218,6 +219,328 @@ AtomicBoolean atomicBoolean = new AtomicBoolean(false);
 AtomicReference<String> atomicRef = new AtomicReference<>("initial");
 atomicRef.set("updated");
 ```
+
+---
+
+## Java Memory Model (JMM)
+
+The Java Memory Model defines how threads interact through memory and establishes rules for visibility and ordering of shared variables.
+
+### Why JMM Matters
+
+Without proper understanding of JMM, you may encounter:
+- **Visibility problems**: Thread changes not seen by other threads
+- **Reordering issues**: Code executes in unexpected order
+- **Data races**: Unpredictable program behavior
+
+### Memory Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        MAIN MEMORY                               │
+│    ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐    │
+│    │ Var A   │    │ Var B   │    │ Var C   │    │ Object  │    │
+│    └─────────┘    └─────────┘    └─────────┘    └─────────┘    │
+└─────────────────────────────────────────────────────────────────┘
+         ↑↓                ↑↓                 ↑↓
+    ┌─────────────┐   ┌─────────────┐   ┌─────────────┐
+    │  Thread 1   │   │  Thread 2   │   │  Thread 3   │
+    │ ┌─────────┐ │   │ ┌─────────┐ │   │ ┌─────────┐ │
+    │ │ CPU     │ │   │ │ CPU     │ │   │ │ CPU     │ │
+    │ │ Cache   │ │   │ │ Cache   │ │   │ │ Cache   │ │
+    │ │(local)  │ │   │ │(local)  │ │   │ │(local)  │ │
+    │ └─────────┘ │   │ └─────────┘ │   │ └─────────┘ │
+    └─────────────┘   └─────────────┘   └─────────────┘
+```
+
+### Visibility Problem
+
+```java
+// BROKEN: Visibility problem
+class StopThread {
+    private boolean stopRequested = false;  // Not volatile!
+    
+    public void requestStop() {
+        stopRequested = true;  // Thread 1 writes
+    }
+    
+    public void run() {
+        while (!stopRequested) {  // Thread 2 may NEVER see the change!
+            // do work
+        }
+    }
+}
+```
+
+**Why does this break?**
+- Thread 1 updates `stopRequested` in its CPU cache
+- Thread 2 reads from its own CPU cache
+- Without synchronization, caches may never sync
+
+### The `volatile` Keyword
+
+`volatile` guarantees visibility and prevents reordering for a variable.
+
+```java
+// FIXED: Using volatile
+class StopThread {
+    private volatile boolean stopRequested = false;
+    
+    public void requestStop() {
+        stopRequested = true;  // Write to main memory
+    }
+    
+    public void run() {
+        while (!stopRequested) {  // Always read from main memory
+            // do work
+        }
+    }
+}
+```
+
+**What `volatile` guarantees:**
+1. **Visibility**: Writes are immediately visible to other threads
+2. **Ordering**: No reordering across volatile read/write
+
+**What `volatile` does NOT guarantee:**
+- Atomicity of compound operations (count++ is NOT atomic even with volatile)
+
+```java
+// STILL BROKEN: volatile doesn't make count++ atomic
+private volatile int count = 0;
+
+public void increment() {
+    count++;  // Read, increment, write - NOT atomic!
+}
+```
+
+### Happens-Before Relationship
+
+The happens-before relationship guarantees that memory writes by one specific statement are visible to another specific statement.
+
+```
+If Action A happens-before Action B, then:
+  - Memory effects of A are visible to B
+  - A is ordered before B
+```
+
+#### Rules That Establish Happens-Before
+
+**1. Program Order Rule**
+Within a single thread, each action happens-before every action that comes later.
+
+```java
+// Thread 1
+x = 1;     // Action A
+y = 2;     // Action B - A happens-before B
+```
+
+**2. Monitor Lock Rule**
+An unlock on a monitor happens-before every subsequent lock on that same monitor.
+
+```java
+synchronized (lock) {
+    x = 10;        // Write inside synchronized
+}
+// Thread 2
+synchronized (lock) {
+    int y = x;     // Guaranteed to see x = 10
+}
+```
+
+**3. Volatile Variable Rule**
+A write to a volatile field happens-before every subsequent read of that volatile.
+
+```java
+volatile boolean ready = false;
+int data = 0;
+
+// Thread 1
+data = 42;        // (1) Write data
+ready = true;     // (2) Write volatile - (1) happens-before (2)
+
+// Thread 2
+if (ready) {      // (3) Read volatile - (2) happens-before (3)
+    use(data);    // (4) Guaranteed to see data = 42!
+}
+```
+
+**4. Thread Start Rule**
+A call to `Thread.start()` happens-before any action in the started thread.
+
+```java
+data = 42;
+thread.start();    // happens-before
+// In new thread:  // data = 42 is visible
+```
+
+**5. Thread Join Rule**
+All actions in a thread happen-before any action following `thread.join()`.
+
+```java
+thread.join();     // Wait for thread
+// All writes by thread are now visible here
+```
+
+**6. Transitivity**
+If A happens-before B, and B happens-before C, then A happens-before C.
+
+### Safe Publication
+
+Safe publication ensures that an object reference and its state are visible to other threads correctly.
+
+#### Unsafe Publication (BROKEN)
+
+```java
+// BROKEN: Unsafe publication
+public class Holder {
+    private int value;
+    
+    public Holder(int n) {
+        this.value = n;  // May not complete before reference escapes!
+    }
+    
+    public void assertValue() {
+        if (value != value) {  // Could actually fail!
+            throw new AssertionError("Value inconsistent");
+        }
+    }
+}
+
+// Thread 1
+holder = new Holder(42);  // Reference may be visible before value is set!
+
+// Thread 2
+holder.assertValue();  // May see value = 0 (default) or value = 42
+```
+
+#### Safe Publication Idioms
+
+```java
+// 1. Initialize in static initializer
+static Holder holder = new Holder(42);
+
+// 2. Store reference in volatile field
+volatile Holder holder = new Holder(42);
+
+// 3. Store reference in properly synchronized field
+synchronized(lock) {
+    holder = new Holder(42);
+}
+
+// 4. Store reference in final field (for immutable objects)
+final Holder holder = new Holder(42);
+
+// 5. Store in concurrent collection
+ConcurrentMap<String, Holder> map = new ConcurrentHashMap<>();
+map.put("key", new Holder(42));
+```
+
+### Double-Checked Locking
+
+A common pattern that MUST use volatile to be correct.
+
+```java
+// BROKEN without volatile (before Java 5)
+class Singleton {
+    private static Singleton instance;
+    
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();  // Can partially construct!
+                }
+            }
+        }
+        return instance;
+    }
+}
+
+// CORRECT with volatile
+class Singleton {
+    private static volatile Singleton instance;  // Must be volatile!
+    
+    public static Singleton getInstance() {
+        if (instance == null) {                   // First check (no lock)
+            synchronized (Singleton.class) {
+                if (instance == null) {           // Second check (with lock)
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+
+// EVEN BETTER: Use enum or holder pattern
+enum SingletonEnum {
+    INSTANCE;
+    // Thread-safe by JVM guarantee
+}
+
+// Or initialization-on-demand holder
+class SingletonHolder {
+    private static class Holder {
+        static final SingletonHolder INSTANCE = new SingletonHolder();
+    }
+    
+    public static SingletonHolder getInstance() {
+        return Holder.INSTANCE;  // Thread-safe, lazy initialization
+    }
+}
+```
+
+### Memory Barriers (Fences)
+
+Memory barriers prevent certain reorderings of instructions.
+
+```java
+// VarHandle provides explicit fences (Java 9+)
+import java.lang.invoke.VarHandle;
+
+VarHandle.fullFence();       // Both load and store barrier
+VarHandle.loadLoadFence();   // Load-load barrier
+VarHandle.storeStoreFence(); // Store-store barrier
+VarHandle.acquireFence();    // Like volatile read
+VarHandle.releaseFence();    // Like volatile write
+```
+
+### Common JMM Pitfalls
+
+#### 1. Non-Volatile Flag
+```java
+// BROKEN
+boolean running = true;  // Not volatile - may loop forever
+while (running) { /* work */ }
+```
+
+#### 2. Inconsistent Synchronization
+```java
+// BROKEN: All accesses must be synchronized
+synchronized (lock) { count++; }  // Write synchronized
+int x = count;                      // Read NOT synchronized - bug!
+```
+
+#### 3. Publishing via Constructor
+```java
+// BROKEN: Don't let 'this' escape during construction
+class BadExample {
+    public BadExample() {
+        EventBus.register(this);  // 'this' escapes before construction completes!
+    }
+}
+```
+
+### JMM Summary Table
+
+| Operation | Visibility | Ordering | Atomicity |
+|-----------|------------|----------|-----------|
+| Normal variable | ❌ | ❌ | ❌ |
+| `volatile` variable | ✅ | ✅ | ❌ (compound) |
+| `synchronized` | ✅ | ✅ | ✅ |
+| `Atomic*` classes | ✅ | ✅ | ✅ |
+| `final` field | ✅ (after construction) | ✅ | N/A |
 
 ---
 

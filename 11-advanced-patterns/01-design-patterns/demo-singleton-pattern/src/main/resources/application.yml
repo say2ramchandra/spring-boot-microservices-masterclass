@@ -1,0 +1,29 @@
+server:
+  port: 8094
+
+spring:
+  application:
+    name: singleton-pattern-demo
+
+# Application Configuration (Singleton holder)
+app:
+  config:
+    app-name: "Singleton Pattern Demo"
+    version: "1.0.0"
+    max-connections: 10
+    timeout-seconds: 30
+    cache-enabled: true
+    
+  database:
+    pool-size: 5
+    max-idle-time: 60000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+logging:
+  level:
+    com.masterclass.patterns.singleton: DEBUG

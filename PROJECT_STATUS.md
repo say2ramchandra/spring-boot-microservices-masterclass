@@ -216,7 +216,7 @@ curl http://localhost:8080/api/products/1
 
 ---
 
-### ✅ Module 08: Testing Microservices ✨ NEW!
+### ✅ Module 08: Testing Microservices ✨
 **Status**: 🟢 Complete comprehensive guide!
 
 **Created**:
@@ -239,6 +239,77 @@ curl http://localhost:8080/api/products/1
 - ✅ Coverage reporting
 
 **Location**: `08-testing/`
+
+---
+
+### ✅ Module 09: Observability & Monitoring ✨ NEW!
+**Status**: 🟢 Complete comprehensive guide + **3 Working Demos!** 🎉
+
+**Created**:
+- Complete observability implementation guide (3,000+ lines)
+- **Structured Logging** with SLF4J and Logback
+  - Correlation IDs and MDC
+  - JSON logging for ELK Stack
+  - Log rolling policies
+  - Multiple appenders (Console, File, Async, JSON)
+- **Metrics Collection** with Micrometer and Prometheus
+  - Custom metrics (Counter, Gauge, Timer, Distribution Summary)
+  - Spring Boot Actuator endpoints
+  - Prometheus queries and alert rules
+  - Grafana dashboard configuration
+- **Distributed Tracing** with Spring Cloud Sleuth and Zipkin
+  - Automatic trace instrumentation
+  - Custom spans and tags
+  - Cross-service tracing
+  - Performance analysis
+  - Service dependency visualization
+
+**Runnable Demos** ⭐:
+1. **demo-logging** - Structured logging demo (Port 8085)
+   - MDC correlation IDs
+   - Multiple log appenders
+   - JSON logging
+   - REST API with comprehensive logging
+   
+2. **demo-metrics-prometheus** - Complete metrics stack (Port 8086)
+   - Custom business metrics
+   - Prometheus scraping (Port 9090)
+   - Grafana dashboards (Port 3000)
+   - Alert rules configuration
+   - Product management API
+   
+3. **demo-distributed-tracing** - Multi-service tracing
+   - Service A (Port 8087)
+   - Service B (Port 8088)
+   - Zipkin UI (Port 9411)
+   - Cross-service request tracing
+   - Custom spans and tags
+
+**Topics Covered**:
+- ✅ Three pillars of observability (Logs, Metrics, Traces)
+- ✅ SLF4J parameterized logging
+- ✅ MDC for request correlation
+- ✅ Logback configuration (rolling, async, JSON)
+- ✅ Micrometer metrics facade
+- ✅ Spring Boot Actuator endpoints
+- ✅ Prometheus metrics collection
+- ✅ Grafana dashboard creation
+- ✅ Alert rule configuration
+- ✅ Spring Cloud Sleuth tracing
+- ✅ Zipkin trace visualization
+- ✅ Custom spans and business tags
+- ✅ Health checks (liveness/readiness)
+- ✅ RED method monitoring
+- ✅ Production observability best practices
+
+**Monitoring Stack**:
+- Prometheus for metrics
+- Grafana for visualization
+- Zipkin for distributed tracing
+- Complete Docker Compose setup
+
+**Location**: `09-observability/`
+**Demo Guide**: `09-observability/DEMOS-README.md`
 
 ---
 

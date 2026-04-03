@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!-- 
+    Parallel execution modes:
+    - tests: Each <test> tag runs in parallel
+    - classes: Each test class runs in parallel
+    - methods: Each test method runs in parallel
+    - instances: Each instance runs in parallel
+-->
+<suite name="Parallel Suite" parallel="classes" thread-count="3" verbose="1">
+    
+    <listeners>
+        <listener class-name="com.masterclass.automation.listeners.TestListener"/>
+    </listeners>
+    
+    <!-- All regression tests in parallel by class -->
+    <test name="Parallel Regression">
+        <groups>
+            <run>
+                <include name="regression"/>
+                <include name="parallel"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.masterclass.automation.tests.LoginTest"/>
+            <class name="com.masterclass.automation.tests.SearchTest"/>
+        </classes>
+    </test>
+    
+</suite>

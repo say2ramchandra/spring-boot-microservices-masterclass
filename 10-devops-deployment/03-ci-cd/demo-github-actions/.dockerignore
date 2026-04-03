@@ -1,0 +1,24 @@
+# Maven
+target/
+!target/*.jar
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+
+# Environment
+.env
+
+# Tests
+*.class

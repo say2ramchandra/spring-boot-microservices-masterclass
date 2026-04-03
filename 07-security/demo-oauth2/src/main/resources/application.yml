@@ -1,0 +1,55 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: demo-oauth2
+  
+  # H2 Database Configuration
+  datasource:
+    url: jdbc:h2:mem:oauth2db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  
+  # JPA Configuration
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  
+  # H2 Console
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # OAuth2 Client Configuration
+  security:
+    oauth2:
+      client:
+        registration:
+          # Google OAuth2 (configure with your credentials)
+          google:
+            client-id: ${GOOGLE_CLIENT_ID:your-google-client-id}
+            client-secret: ${GOOGLE_CLIENT_SECRET:your-google-client-secret}
+            scope:
+              - email
+              - profile
+          
+          # GitHub OAuth2 (configure with your credentials)
+          github:
+            client-id: ${GITHUB_CLIENT_ID:your-github-client-id}
+            client-secret: ${GITHUB_CLIENT_SECRET:your-github-client-secret}
+            scope:
+              - user:email
+              - read:user
+
+# Logging
+logging:
+  level:
+    root: INFO
+    com.masterclass.security: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG

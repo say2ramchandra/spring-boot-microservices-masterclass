@@ -1,0 +1,50 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: product-service-hpa
+  namespace: product
+  labels:
+    app: product-service
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: product-service
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300  # Wait 5 min before scaling down
+      policies:
+      - type: Percent
+        value: 50  # Scale down max 50% at a time
+        periodSeconds: 60
+    scaleUp:
+      stabilizationWindowSeconds: 0  # Scale up immediately
+      policies:
+      - type: Percent
+        value: 100  # Double pods at a time
+        periodSeconds: 60
+      - type: Pods
+        value: 2  # Or add 2 pods
+        periodSeconds: 60
+      selectPolicy: Max  # Use the policy that scales up most
+
+---
+# Note: Requires metrics-server to be installed
+# For Minikube: minikube addons enable metrics-server
+# Check HPA status: kubectl get hpa -n product
+# Describe HPA: kubectl describe hpa product-service-hpa -n product

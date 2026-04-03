@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prod-app
+  namespace: blue-green-demo
+spec:
+  selector:
+    app: prod-app
+    version: blue # Switch this to green during release
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP

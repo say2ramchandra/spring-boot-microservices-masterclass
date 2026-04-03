@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: demo-github-actions
+
+server:
+  port: 8080
+  shutdown: graceful
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+  health:
+    livenessState:
+      enabled: true
+    readinessState:
+      enabled: true
+  info:
+    env:
+      enabled: true
+    build:
+      enabled: true
+
+# Info endpoint
+info:
+  app:
+    name: GitHub Actions CI/CD Demo
+    description: Complete CI/CD pipeline demonstration
+    version: 1.0.0
+    features:
+      - Automated Build & Test
+      - Code Quality Analysis
+      - Security Scanning
+      - Docker Build & Push
+      - Kubernetes Deployment
+
+# Logging
+logging:
+  level:
+    com.masterclass: INFO
+    org.springframework.web: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"

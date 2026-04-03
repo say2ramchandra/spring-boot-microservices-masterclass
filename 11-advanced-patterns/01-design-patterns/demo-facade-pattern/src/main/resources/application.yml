@@ -1,0 +1,10 @@
+server:
+  port: 8097
+
+spring:
+  application:
+    name: facade-pattern-demo
+
+logging:
+  level:
+    com.masterclass.patterns.facade: DEBUG

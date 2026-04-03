@@ -8,6 +8,61 @@ Learn to implement authentication, authorization, and security best practices in
 
 ---
 
+## 🚀 Runnable Demos
+
+| Demo | Port | Description |
+|------|------|-------------|
+| [demo-security-basics](demo-security-basics/) | 8085 | Form login, HTTP Basic, RBAC |
+| [demo-jwt-auth](demo-jwt-auth/) | 8086 | JWT token authentication |
+| [demo-oauth2](demo-oauth2/) | 8087 | OAuth2 social login (Google/GitHub) |
+
+### Quick Start
+
+```bash
+# Security Basics Demo (Form Login + HTTP Basic)
+cd 07-security/demo-security-basics
+mvn spring-boot:run
+# Open http://localhost:8085
+# Login: user/user123, manager/manager123, admin/admin123
+
+# JWT Authentication Demo
+cd 07-security/demo-jwt-auth
+mvn spring-boot:run
+# Login: curl -X POST http://localhost:8086/api/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{"username":"user","password":"user123"}'
+
+# OAuth2 Demo (requires OAuth2 credentials)
+cd 07-security/demo-oauth2
+mvn spring-boot:run
+# Open http://localhost:8087
+```
+
+### Demo Features
+
+**demo-security-basics**
+- Custom login page with form authentication
+- HTTP Basic for REST API
+- Role-based access (USER, MANAGER, ADMIN)
+- Method-level security (@PreAuthorize)
+- Remember-me functionality
+- BCrypt password encoding
+
+**demo-jwt-auth**
+- JWT token generation and validation
+- Refresh token handling
+- Stateless authentication
+- Token expiration and renewal
+- Role-based API access
+
+**demo-oauth2**
+- Google OAuth2 login
+- GitHub OAuth2 login
+- User info extraction
+- User persistence from OAuth2
+
+---
+
 ## 🎯 Learning Objectives
 
 - ✅ Implement authentication with Spring Security

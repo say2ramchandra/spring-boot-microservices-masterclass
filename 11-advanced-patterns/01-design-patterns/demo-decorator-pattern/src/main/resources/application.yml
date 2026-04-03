@@ -1,0 +1,10 @@
+server:
+  port: 8098
+
+spring:
+  application:
+    name: decorator-pattern-demo
+
+logging:
+  level:
+    com.masterclass.patterns.decorator: DEBUG

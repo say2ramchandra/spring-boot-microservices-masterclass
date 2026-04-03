@@ -1,0 +1,44 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: kafka-demo
+  
+  kafka:
+    bootstrap-servers: localhost:9092
+    
+    # Producer configuration
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      acks: all
+      retries: 3
+      properties:
+        enable.idempotence: true
+        max.in.flight.requests.per.connection: 5
+    
+    # Consumer configuration
+    consumer:
+      group-id: masterclass-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+    
+    # Listener configuration
+    listener:
+      ack-mode: manual_immediate
+
+# Kafka topic names
+kafka:
+  topics:
+    order-events: order-events
+    notification-events: notification-events
+    payment-events: payment-events
+
+logging:
+  level:
+    com.masterclass.messaging: DEBUG
+    org.apache.kafka: INFO

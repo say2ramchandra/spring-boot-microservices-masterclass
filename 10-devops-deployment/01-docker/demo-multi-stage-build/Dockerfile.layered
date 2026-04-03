@@ -1,0 +1,59 @@
+# ==================================================
+# Advanced Multi-Stage Dockerfile with Layering
+# ==================================================
+# This version further optimizes the build by:
+# - Extracting JAR layers for better caching
+# - Using Spring Boot's layered JAR feature
+# - Optimizing layer reuse
+# ==================================================
+
+# ============================================
+# Stage 1: Build
+# ============================================
+FROM maven:3.9-eclipse-temurin-17 AS builder
+
+WORKDIR /build
+
+# Copy and download dependencies
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+
+# Copy source and build
+COPY src ./src
+RUN mvn clean package -DskipTests -B
+
+# Extract JAR layers
+RUN java -Djarmode=layertools -jar target/*.jar extract
+
+# ============================================
+# Stage 2: Runtime with Layers
+# ============================================
+FROM eclipse-temurin:17-jre-alpine
+
+RUN apk add --no-cache curl dumb-init
+
+# Create user
+RUN addgroup -S spring && adduser -S spring -G spring
+
+WORKDIR /app
+
+# Copy layers in order of change frequency
+# (least changing first for better caching)
+COPY --from=builder --chown=spring:spring /build/dependencies/ ./
+COPY --from=builder --chown=spring:spring /build/spring-boot-loader/ ./
+COPY --from=builder --chown=spring:spring /build/snapshot-dependencies/ ./
+COPY --from=builder --chown=spring:spring /build/application/ ./
+
+USER spring:spring
+
+EXPOSE 8080
+
+HEALTHCHECK --interval=30s --timeout=3s --start-period=60s \
+  CMD curl -f http://localhost:8080/actuator/health || exit 1
+
+# Use dumb-init for proper signal handling
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+CMD ["java", \
+     "-XX:+UseContainerSupport", \
+     "-XX:MaxRAMPercentage=75.0", \
+     "org.springframework.boot.loader.JarLauncher"]

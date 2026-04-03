@@ -56,18 +56,19 @@ By completing this masterclass, you will:
 |--------|-------|----------|--------|
 | 07 | Security (JWT, OAuth2, mTLS) | 5-7 days | 🟢 Complete |
 | 08 | Testing (Unit, Integration, Contract, E2E) | 4-5 days | 🟢 Complete |
-| 09 | Observability (Monitoring, Tracing, Logging) | 3-4 days | 🟡 Planned |
+| 09 | Observability (Monitoring, Tracing, Logging) | 3-4 days | � Complete |
 
 ### **Phase 4: DevOps & Advanced (3-4 weeks)**
 | Module | Topic | Duration | Status |
 |--------|-------|----------|--------|
-| 10 | DevOps (Docker, Kubernetes, CI/CD) | 7-10 days | 🟡 Planned |
-| 11 | Advanced Patterns & Best Practices | 5-7 days | 🟡 Planned |
+| 10 | DevOps (Docker, Kubernetes, CI/CD) | 7-10 days | 🟢 Complete |
+| 11 | Advanced Patterns & Best Practices | 5-7 days | 🟢 Complete |
+| 13 | Database Deep Dive (JDBC, NoSQL, Redis) | 7-10 days | 🟡 In Progress |
 
 ### **Phase 5: Capstone Project (2-3 weeks)**
 | Module | Topic | Duration | Status |
 |--------|-------|----------|--------|
-| 12 | E-Commerce Microservices | 14-21 days | 🟢 Ready |
+| 12 | E-Commerce Microservices | 14-21 days | 🟢 Complete |
 
 **Total Estimated Time: 10-14 weeks** (with consistent daily practice)
 
@@ -87,13 +88,14 @@ spring-boot-microservices-masterclass/
 ├── 06-messaging/                   # ✅ RabbitMQ, Kafka, Saga, Event Sourcing, CQRS
 ├── 07-security/                    # ✅ JWT, OAuth2, Spring Security, mTLS
 ├── 08-testing/                     # ✅ Unit, Integration, Contract, E2E, TDD
-├── 09-observability/               # 🟡 Planned: Prometheus, Grafana, ELK, Tracing
-├── 10-devops-deployment/           # 🟡 Planned: Docker, Kubernetes, CI/CD
-├── 11-advanced-patterns/           # 🟡 Planned: Advanced microservices patterns
-└── 12-capstone-project/            # 🟡 Planned: Complete E-Commerce System
+├── 09-observability/               # ✅ Logs, Metrics, Tracing (3 demos)
+├── 10-devops-deployment/           # ✅ Complete: Docker, Kubernetes, CI/CD (5 demos)
+├── 11-advanced-patterns/           # ✅ Complete: Design Patterns + BFF + Reactive (4 demos)
+├── 12-capstone-project/            # ✅ Complete: E-Commerce System Infrastructure
+└── 13-database-deep-dive/          # 🟡 JDBC, Hibernate, NoSQL (MongoDB, Redis)
 ```
 
-**Progress**: 8 out of 12 modules complete! 🎉
+**Progress**: 12 out of 13 modules complete! (Module 13 in progress)
 
 ## 🚀 Quick Start Guide
 

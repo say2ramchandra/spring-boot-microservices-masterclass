@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Security Basics Demo</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .card { background: white; border-radius: 10px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #333; margin-bottom: 1rem; }
+        h2 { color: #555; margin-bottom: 1rem; }
+        p { color: #666; line-height: 1.6; margin-bottom: 1rem; }
+        .nav { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .nav a { padding: 0.75rem 1.5rem; background: #667eea; color: white; text-decoration: none; border-radius: 5px; }
+        .nav a:hover { background: #5a6fd6; }
+        ul { margin-left: 1.5rem; color: #666; }
+        ul li { margin-bottom: 0.5rem; line-height: 1.6; }
+        code { background: #f0f0f0; padding: 0.2rem 0.4rem; border-radius: 3px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="nav">
+                <a th:href="@{/home}">Home</a>
+                <a th:href="@{/about}">About</a>
+                <a th:href="@{/login}" sec:authorize="isAnonymous()">Login</a>
+                <a th:href="@{/dashboard}" sec:authorize="isAuthenticated()">Dashboard</a>
+            </div>
+
+            <h1>ℹ️ About This Demo</h1>
+            <p>This application demonstrates Spring Security 6 concepts for the Spring Boot Microservices Masterclass.</p>
+        </div>
+
+        <div class="card">
+            <h2>🎯 What You'll Learn</h2>
+            <ul>
+                <li><strong>Form-Based Authentication</strong> - Custom login page with username/password</li>
+                <li><strong>HTTP Basic Authentication</strong> - REST API protection</li>
+                <li><strong>Role-Based Access Control (RBAC)</strong> - USER, MANAGER, ADMIN roles</li>
+                <li><strong>URL-Based Security</strong> - Using <code>authorizeHttpRequests()</code></li>
+                <li><strong>Method-Level Security</strong> - Using <code>@PreAuthorize</code> and <code>@Secured</code></li>
+                <li><strong>Remember-Me</strong> - Persistent authentication</li>
+                <li><strong>Custom UserDetailsService</strong> - Database-backed authentication</li>
+                <li><strong>Password Encoding</strong> - BCrypt hashing</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🏗️ Architecture</h2>
+            <ul>
+                <li><strong>Spring Boot 3.2</strong> - Application framework</li>
+                <li><strong>Spring Security 6</strong> - Security framework</li>
+                <li><strong>Spring Data JPA</strong> - Database access</li>
+                <li><strong>H2 Database</strong> - In-memory database (dev mode)</li>
+                <li><strong>Thymeleaf</strong> - Server-side templating with security extras</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>📚 Key Files</h2>
+            <ul>
+                <li><code>SecurityConfig.java</code> - Security filter chains configuration</li>
+                <li><code>CustomUserDetailsService.java</code> - Loads users from database</li>
+                <li><code>User.java / Role.java</code> - JPA entities</li>
+                <li><code>DataInitializer.java</code> - Seeds demo users</li>
+                <li><code>WebController.java</code> - Thymeleaf page controllers</li>
+                <li><code>ApiController.java</code> - REST API endpoints</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
